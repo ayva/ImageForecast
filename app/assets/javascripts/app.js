@@ -1,7 +1,7 @@
 var futugram = angular.module('futugram',['restangular', 'ui.router'])
 .config(['RestangularProvider', function(RestangularProvider){
 
-  RestangularProvider.setBaseUrl('api/v1');
+  // RestangularProvider.setBaseUrl('api/v1');
   RestangularProvider.setRequestSuffix('.json');
   RestangularProvider.setDefaultHttpFields({
     "content-type":"application/json"

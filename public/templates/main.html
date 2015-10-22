@@ -1,1 +1,18 @@
-Angular main template
+Angular main template {{featured.cities.data.length}}
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-md-3" ng-if="featured" ng-repeat="photo in featured.cities.data">
+      <a href={{photo.link}} class="thumbnail">
+        <img src='{{photo.images.low_resolution.url}}'>
+        Posted by @{{photo.user.username}}
+        Likes {{photo.likes.count}}
+        
+      </a>
+    </div>
+    ...
+  </div>
+</div>
+

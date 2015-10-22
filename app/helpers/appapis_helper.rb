@@ -1,0 +1,2 @@
+module AppapisHelper
+end
