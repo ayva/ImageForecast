@@ -1,18 +1,44 @@
-Angular main template {{featured.cities.data.length}}
-
+Total photos {{featured.cities.data.length}}
 
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-6 col-md-3" ng-if="featured" ng-repeat="photo in featured.cities.data">
-      <a href={{photo.link}} class="thumbnail">
-        <img src='{{photo.images.low_resolution.url}}'>
-        Posted by @{{photo.user.username}}
-        Likes {{photo.likes.count}}
+    <form class="form-inline" ng-model="searchForm" ng-submit="showForecast()">
+      <input  type="text"
+        required="string" 
+        uib-typeahead="place.name for place in geo.places"
+        typeahead-no-results="noResults"
+        typeahead-append-to-body = "true"
+        typeahead-on-select = "searchForm.place = $item"
+        placeholder = "Find a place"
+        ng-model = "place"
+        ng-change="getPlaces(place)"
+        class = "form-control"
+        autocomplete="off">
         
+      <input  type="date" class="form-control"  ng-model="searchForm.date">
+      Date {{searchForm.date}}
+
+      <button type="submit" class="btn btn-default">Show me the future</button>
+    </form>
+ 
+  </div>
+  <h1 class="row text-center">{{title}}</h1>
+  <h5> Looking for future at {{date}}</h5>
+  <div class="row">
+    <div class="col-xs-6 col-md-3" ng-repeat="photo in featured.cities.data">
+      <a href={{photo.link}} class="thumbnail">
+        <img src={{photo.images.thumbnail.url}}>
+        <ul>
+          <li>Posted by @{{photo.user.username}}</li>
+          <li>Likes {{photo.likes.count}}</li>
+          <li>Tags total {{photo.tags.length}}</li>
+          <li>Created at {{photo.created_time}}</li>
+          <li>Created at {{photo.created_date}}</li>
+          <!-- <li ng-repeat='tag in photo.tags'>{{tag}}</li> -->
+        </ul>
       </a>
     </div>
-    ...
   </div>
 </div>
 

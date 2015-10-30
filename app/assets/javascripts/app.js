@@ -1,4 +1,4 @@
-var futugram = angular.module('futugram',['restangular', 'ui.router'])
+var futugram = angular.module('futugram',['restangular', 'ui.router','ui.bootstrap', 'ui.bootstrap.typeahead'])
 .config(['RestangularProvider', function(RestangularProvider){
 
   // RestangularProvider.setBaseUrl('api/v1');
@@ -21,4 +21,5 @@ var futugram = angular.module('futugram',['restangular', 'ui.router'])
       });
 
       $urlRouterProvider.otherwise('/');
-}]);
+}])
+;

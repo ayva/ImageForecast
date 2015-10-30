@@ -2,7 +2,7 @@ require 'openssl'
 require 'base64'
 
 
-   class Instagram
+  class Instagram
     BASE_URI = "https://api.instagram.com/v1"
     CLIENT_ID = Rails.application.secrets.INSTAGRAM_CLIENT_ID
     # def initialize
@@ -33,8 +33,18 @@ require 'base64'
       api_url = "/media/search?lat=#{lat}&lng=#{lng}"
       url = [BASE_URI, api_url, "&client_id=", CLIENT_ID].join("")
       # headers = { "Accept" => "application/json",
-      #             }
-      
+      #             } 
+      result = HTTParty.get(url).parsed_response
+      return result
+    end
+
+    def self.get_images_by_location_and_date(place, time)
+      place = JSON.parse(place)
+      time = JSON.parse(time)
+      puts "Got query place #{place.class}, time #{time}"
+      api_url = "/media/search?lat=#{place['location']['lat']}&lng=#{place['location']['lng']}&min_timestamp=#{time['min']/1000}&max_timestamp=#{time['max']/1000}"
+      url = [BASE_URI, api_url, "&client_id=", CLIENT_ID].join("")
+      puts "Getting Instagram API #{url}"
       result = HTTParty.get(url).parsed_response
       return result
     end

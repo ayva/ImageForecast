@@ -15,6 +15,10 @@
 
 //= require angular
 //= require angular-ui-router.min.js
+//= require bootstrap3-typeahead.min.js
+//= require typeahead.bundle.min.js
+//= require typeahead.js
+//= require ui-bootstrap-tpls-0.14.3.min.js
 //= require restangular.js
 //= require underscore.js
 //= require_tree .
