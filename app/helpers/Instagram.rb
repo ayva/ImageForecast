@@ -42,7 +42,7 @@ require 'base64'
       place = JSON.parse(place)
       time = JSON.parse(time)
       puts "Got query place #{place.class}, time #{time}"
-      api_url = "/media/search?lat=#{place['location']['lat']}&lng=#{place['location']['lng']}&min_timestamp=#{time['min']/1000}&max_timestamp=#{time['max']/1000}"
+      api_url = "/media/search?lat=#{place['location']['lat']}&lng=#{place['location']['lng']}&min_timestamp=#{time['min']/1000}&max_timestamp=#{time['max']/1000}&count=1000&distance=5000"
       url = [BASE_URI, api_url, "&client_id=", CLIENT_ID].join("")
       puts "Getting Instagram API #{url}"
       result = HTTParty.get(url).parsed_response
