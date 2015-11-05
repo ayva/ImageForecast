@@ -29,6 +29,17 @@ var futugram = angular.module('futugram',['restangular', 'ui.router','ui.bootstr
           }
         });
 
+      })
+      .state('about',{
+        url: '/about',
+        views: {
+          '':{
+            templateUrl: 'templates/about.html',
+            controller: 'aboutCtrl'
+          }
+        }
+      });
+
       $urlRouterProvider.otherwise('/');
 }])
 ;

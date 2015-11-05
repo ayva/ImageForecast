@@ -2,35 +2,67 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
   var obj = {};
 
   obj.featured = {};
+  obj.featured.center = {
+    lng: 2.344694,
+    lat: 48.858093
+    };
 
-  obj.get_featured_city = function(){
-    Restangular.all('photos').customGET('featuredCity').then(function(response){
-      obj.featured.cities = response;
+  function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
 
-    });
-  };
+  obj.search = { place: "Paris",
+                date: addDays(new Date(), 1).toISOString().slice(0,10)};
+
+  // obj.get_featured_city = function(){
+  //   Restangular.all('photos').customGET('featuredCity').then(function(response){
+  //     obj.featured.cities = response;
+
+  //   });
+  // };
+
+  //Grabbing photos from Instagram by place and date
   obj.get_future_city = function(date, place){
-    // timeNow = Date.now();
-    // min = timeNow - 60*60*24*365*1000;
-    // max = min + 60*60*24*7*1000;
-    console.log("Date is ",date);
     var d = new Date(date);
     min = d.setHours(0,0,0,0);
     max = d.setHours(24,0,0,0);
-    console.log(min, max);
-    console.log("Getting future photos");
+
     Restangular.all('photos').customGET('futureCity',
       { time : {min: min, max: max},
         place : place
       }).then(function(response){
-      // response.data.forEach(
-      //   function(element, index){
-      //   element.created_date =  new Date(element.created_time*1000);
-      // });
-      obj.featured.cities = response;
+         //Moving map center 
+          console.log("Center ", obj.featured.center);
 
-    });
+          // obj.featured.map.panTo(obj.featured.center);
+
+          // Updating data
+          obj.featured.cities = response;
+          obj.updateMarkers(place);
+        });
+    
     // .catch(console.log.bind(console));
+  };
+
+  obj.updateMarkers = function(center){
+      //Removing old markers
+       if (obj.featured.markers){obj.featured.markers.clearLayers();}
+       // if (obj.featured.cicles) {obj.featured.cicles.clearLayers();}
+      
+
+      // Adding photos to map
+      angular.forEach(obj.featured.cities.data, function(spot){
+      var new_marker = L.marker([spot.location.latitude, spot.location.longitude]).bindPopup('<h4>@'+spot.user.username+'</h4> <h5>in '+spot.location.name).addTo(obj.featured.markers);
+      });
+
+      //Adding a cicle
+      // var new_cicle = L.circle([center.location.lng, center.location.lat], 1700, {
+      //   color: 'red',
+      //   fillColor: '#f03',
+      //   fillOpacity: 0.5
+      // }).addTo(obj.featured.cicles);
   };
 
   obj.showForecast = function(date, place){
@@ -38,10 +70,10 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
   };
 
   obj.geo = {};
-  obj.geo.features = [{text: "Paris, France"}];
+  // obj.geo.features = [{text: "Paris, France"}];
 
 
-
+  //Autocomplite search by place
   obj.getGeoData = function(address){
     return $http({
             method: 'GET',
@@ -56,6 +88,7 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
                                             }
                                   };
                         });
+
               return obj.geo.features;
 
         }, function errorCallback(response) {
