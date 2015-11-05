@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/app/assets/stylesheets/main2.css">
 </head>
 <body>
-markup
+<div class="header">
+    <div class="fullscreen-bg">
+        <video loop muted autoplay poster="" class="fullscreen-bg__video">
+            <source ng-src="/statics/video/headerVideo.ogv" type="video/ogg">
+        </video>
+    </div>
+    <div class="nav">
+        <div class="logo">FUTUGRAMM</div>
+        <button class="sign">SIGN IN</button>
+    </div>
+    <p class="explanation">Futugramm shows how it will look in the coming year through the eyes of those,
+        who already have been there. Select a city, a date of a planned trip, and a point on map.</p>
+
+    <div class="cityInput">
+        <label>
+            <input class="input" value="SAN FRANCISCO"/>
+            <button class="button">GO</button>
+        </label>
+    </div>
+    <div class="slider"></div>
+</div>
+<div class="map"></div>
+<div class="photoBlock"></div>
+<footer>
+    <span class="copyright">Copyright © 2015 Futuframm Inc. All rights reserved.</span>
+
+    <div class="rightBlock">
+        <a href="#" class="about">About</a>
+        <a href="#" class="follow">Follow us<img class="instIcon" ng-src="/statics/images/instagram.png"></a>
+    </div>
+</footer>
 </body>
 </html>
