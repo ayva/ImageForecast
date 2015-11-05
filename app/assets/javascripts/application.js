@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require angular
 //= require angular-ui-router.min.js
 //= require bootstrap3-typeahead.min.js
@@ -21,4 +20,5 @@
 //= require ui-bootstrap-tpls-0.14.3.min.js
 //= require restangular.js
 //= require underscore.js
+//= require leaflet.js
 //= require_tree .

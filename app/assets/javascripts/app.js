@@ -18,6 +18,16 @@ var futugram = angular.module('futugram',['restangular', 'ui.router','ui.bootstr
             controller: 'mainCtrl'
           }
         }
+
+      })
+      .state('about',{
+        url: '/about',
+        views: {
+          '':{
+            templateUrl: 'templates/about.html',
+            controller: 'aboutCtrl'
+          }
+        }
       });
 
       $urlRouterProvider.otherwise('/');
