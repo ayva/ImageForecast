@@ -11,6 +11,7 @@
  * file per style scope.
  *= require bootstrap.min.css
  *= require bootstrap-theme.min.css
+ *= require simple-slider.css
  *= require leaflet.css
  *= require_tree .
  *= require_self
