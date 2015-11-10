@@ -1,52 +1,168 @@
-Total photos {{featured.cities.data.length}}
+<!--Total photos {{featured.cities.data.length}}-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 
+    <script>
+        angular.element(document).ready(function () {
+            var chosenMonth = $("[data-month='" + getCurrentMonth() + "']")[0];
 
+            $("[data-slider]").each(function () {
+                var $el, allowedValues, settings, x;
+                $el = $(this);
+                settings = {};
+                allowedValues = $el.data("slider-values");
+                if (allowedValues) {
+                    settings.allowedValues = (function () {
+                        var _i, _len, _ref, _results;
+                        _ref = allowedValues.split(",");
+                        _results = [];
+                        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                            x = _ref[_i];
+                            _results.push(parseFloat(x));
+                        }
+                        return _results;
+                    })();
+                }
+                if ($el.data("slider-range")) {
+                    settings.range = $el.data("slider-range").split(",");
+                }
+                if ($el.data("slider-step")) {
+                    settings.step = $el.data("slider-step");
+                }
+                return $el.simpleSlider(settings);
+            });
+
+            $("#slider-input")
+                    .each(function () {
+                        var input = $(this);
+                    })
+                    .bind("slider:ready slider:changed", function (event, data) {
+                        $($('.output')[0]).html(data.value.toFixed(0) + ' ' + $(chosenMonth).text());
+                    });
+            $('.mnth-button').on('click', function () {
+                if ($('.clicked')[0]) {
+                    $('.clicked')[0].className = 'mnth-button';
+                }
+                this.className = 'clicked';
+                chosenMonth = $('.clicked')[0];
+            });
+            function getCurrentMonth() {
+                var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+                ];
+
+                var d = new Date();
+                return monthNames[d.getMonth()];
+            }
+
+            function getCurrentDay() {
+                var d = new Date();
+                return d.getDate();
+            }
+
+            chosenMonth.className = 'clicked';
+            var day = getCurrentDay();
+            var month = getCurrentMonth();
+            var date = day + ' ' + month;
+            $($(".output")[0]).text(date);
+            $("#slider-input").simpleSlider("setValue", day);
+
+            var days = 30;
+            var dayWidth = 700 / days;
+
+            function daysInSlider(days) {
+                for (var i = 1; i <= days; i++) {
+                    $($('.days-list')[0]).append('<li class=\'days\' style=\'width:' + dayWidth + 'px;\'>' + i + '</li>');
+                }
+            }
+
+            daysInSlider(days);
+        });
+
+    </script>
+</head>
+<body>
 <div class="container">
-  <div class="row">
-    <form class="form-inline" ng-model="searchForm" ng-submit="showForecast()">
-      <input  type="text"
-        required="string" 
-        uib-typeahead="place.name for place in geo.places"
-        typeahead-no-results="noResults"
-        typeahead-append-to-body = "true"
-        typeahead-on-select = "searchForm.place = $item"
-        placeholder = "Find a place"
-        ng-model = "place"
-        ng-change="getPlaces(place)"
-        class = "form-control"
-        autocomplete="off">
-        
-      <input  type="date" class="form-control"  ng-model="searchForm.date" value={{search.date}}>
-      
+    <div class="header">
+        <div class="fullscreen-bg">
+            <video loop muted autoplay poster="" class="fullscreen-bg__video">
+                <source ng-src="/statics/video/headerVideo.ogv" type="video/ogg">
+            </video>
+        </div>
+        <div class="nav">
+            <div class="logo">FUTUGRAMM</div>
+            <button class="sign">SIGN IN</button>
+        </div>
+        <p class="explanation">Futugramm shows how it will look in the coming year through the eyes of those,
+            who already have been there. Select a city, a date of a planned trip, and a point on map.</p>
 
-      <button type="submit" class="btn btn-default">Show me the future</button>
-    </form>
-  </div>
+        <form class="form-inline" ng-model="searchForm" ng-submit="showForecast()">
+            <div class="cityInput">
+                <input type="text"
+                       required="string"
+                       uib-typeahead="place.name for place in geo.places"
+                       typeahead-no-results="noResults"
+                       typeahead-append-to-body="true"
+                       typeahead-on-select="searchForm.place = $item"
+                       ng-model="place"
+                       ng-change="getPlaces(place)"
+                       class="input"
+                       autocomplete="off">
+                <button type="submit" class="button">GO</button>
+            </div>
+            <div class="slider-wrapper">
+                <div class="months">
+                    <button type='button' class="mnth-button" data-month='JAN'>JAN</button>
+                    <button type='button' class="mnth-button" data-month='FEB'>FEB</button>
+                    <button type='button' class="mnth-button" data-month='MAR'>MAR</button>
+                    <button type='button' class="mnth-button" data-month='APR'>APR</button>
+                    <button type='button' class="mnth-button" data-month='MAY'>MAY</button>
+                    <button type='button' class="mnth-button" data-month='JUN'>JUN</button>
+                    <button type='button' class="mnth-button" data-month='JUL'>JUL</button>
+                    <button type='button' class="mnth-button" data-month='AUG'>AUG</button>
+                    <button type='button' class="mnth-button" data-month='SEP'>SEP</button>
+                    <button type='button' class="mnth-button" data-month='OCT'>OCT</button>
+                    <button type='button' class="mnth-button" data-month='NOV'>NOV</button>
+                    <button type='button' class="mnth-button" data-month='DEC'>DEC</button>
+                </div>
+                <input type="text" data-slider="true" id="slider-input" data-slider-range="1,30" data-slider-step="1">
 
-  <h1>Map</h1>
+                <div>
+                    <ul class="days-list"></ul>
+                </div>
+                <div><span class="output"></span></div>
+            </div>
 
-  <div id='map'></div>
-
-
-  <h1 class="row text-center">{{search.place}} on {{search.date}}</h1>
-  
-  <h4 class="text-center" ng-if="featured.cities.data.length == 0 ">No photos for this place. Try another date or place.</h4 class="text-center">
-  <div class="row">
-    <div class="col-xs-6 col-md-3" ng-repeat="photo in featured.cities.data | orderBy: '-likes.count' ">
-      <a href={{photo.link}} class="thumbnail">
-        <img src={{photo.images.thumbnail.url}}>
-<!--         <ul>
-          <li>Posted by @{{photo.user.username}}</li>
-          <li>Likes {{photo.likes.count}}</li>
-          <li>Tags total {{photo.tags}}</li>
-          <li>Created at {{photo.created_time}}</li>
-          <li>Created at {{photo.created_date}}</li>
-          <li ng-repeat='tag in photo.tags'>{{tag}}</li>
-        </ul> -->
-      </a>
+        </form>
     </div>
-  </div>
+    <div id="map"></div>
+    <div class="photoBlock">
+        <h4 class="text-center" ng-if="featured.cities.data.length == 0 ">No photos for this place. Try another date or
+            place.</h4>
+
+        <div class="row">
+            <div class="col-md-4" ng-repeat="photo in featured.cities.data | orderBy: '-likes.count' ">
+                <a href={{photo.link}} class="thumbnail">
+                    <img src={{photo.images.thumbnail.url}}>
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <span class="copyright">Copyright © 2015 Futuframm Inc. All rights reserved.</span>
+
+        <div class="rightBlock">
+            <a href="#" class="about">About</a>
+            <a href="#" class="follow">Follow us<img class="instIcon" ng-src="/statics/images/instagram.png"></a>
+        </div>
+    </footer>
 </div>
+</body>
+</html>
 
 
 
