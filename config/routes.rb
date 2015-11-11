@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # Authorization
      post 'authorized' => 'pages#auth'
-     post 'callback' => 'pages#callback'
+     get 'callback' => 'pages#callback'
 
   resource :session, :only => [:create, :destroy]   
   resources :user, :only => [:create, :destroy]   
