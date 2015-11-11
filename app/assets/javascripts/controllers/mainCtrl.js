@@ -1,7 +1,14 @@
 futugram.controller('mainCtrl', ['$scope', '$http','storage', function($scope, $http, storage){
-  // $scope.title = "Paris now"
-  // $scope.featured = storage.featured;
-  // storage.get_featured_city();
+  // Authorization
+   
+   // Auth.currentUser().then(function(user) {
+   //          // User was logged in, or Devise returned
+   //          // previously authenticated session.
+   //          console.log("User", user); // => {id: 1, ect: '...'}
+   //      }, function(error) {
+   //          // unauthenticated error
+   //          console.log("Unauthenticated user");
+   //      });
   
   $scope.geo = storage.geo;
   

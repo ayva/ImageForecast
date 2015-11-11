@@ -16,6 +16,10 @@ var futugram = angular.module('futugram',['restangular', 'ui.router','ui.bootstr
           '':{
             templateUrl: 'templates/main.html',
             controller: 'mainCtrl'
+          },
+          'navbar' : {
+            templateUrl: 'partials/navbar.html',
+            controller: 'navbarCtrl'
           }
         }
 

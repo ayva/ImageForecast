@@ -7,11 +7,19 @@ gem 'rails', '4.2.3'
 gem 'pg'
 
 gem 'figaro'
+
 #Work with API
 gem 'httparty'
 
 # Angular
 gem 'angularjs-rails'
+
+#Authorization
+# source "https://rails-assets.org" do
+#   gem "rails-assets-angular-devise"
+# end
+# gem omniauth
+
 gem 'angular_rails_csrf'
 
 # Use SCSS for stylesheets
