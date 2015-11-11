@@ -6,8 +6,10 @@ class PagesController < ApplicationController
 
   # Instagram authorization
   def authorized
+    respond_to do |format|
+      format.json {render json: !!current_user}
+    end
     
-    !!current_user
     # client_id = Rails.application.secrets.INSTAGRAM_CLIENT_ID
     # redirect_uri = Rails.application.secrets.REDIRECT_URI
 

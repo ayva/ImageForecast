@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  has_secure_password
+  # has_secure_password
   
   def create
     @user = User.new(whitelisted_params)
