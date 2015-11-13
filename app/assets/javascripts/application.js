@@ -20,5 +20,5 @@
 //= require ui-bootstrap-tpls-0.14.3.min.js
 //= require restangular.js
 //= require underscore.js
-//= require leaflet.js
+//= require leaflet
 //= require_tree .
