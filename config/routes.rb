@@ -10,7 +10,7 @@ Rails.application.routes.draw do
      get 'photos/futureCity' => 'photos#futureCity'
 
   # Authorization
-     post 'authorized' => 'pages#auth'
+     get 'authorized' => 'pages#auth'
      get 'callback' => 'pages#callback'
 
   resource :session, :only => [:create, :destroy]   

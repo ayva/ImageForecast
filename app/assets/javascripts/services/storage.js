@@ -14,7 +14,7 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
   }
 
   obj.search = { place: "Paris",
-                date: addDays(new Date(), 1).toISOString().slice(0,10)};
+                 date: addDays(new Date(), 1)};
 
   // obj.get_featured_city = function(){
   //   Restangular.all('photos').customGET('featuredCity').then(function(response){
@@ -89,7 +89,7 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
                                   };
                         });
 
-              return obj.geo.features;
+              return obj.geo.places;
 
         }, function errorCallback(response) {
           console.log("No geo info returned for address ", address);

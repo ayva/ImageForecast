@@ -1,4 +1,4 @@
-futugram.controller('mainCtrl', ['$scope', '$http','storage', function($scope, $http, storage){
+futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', function($scope, $http, storage, current_user){
   // Authorization
    
    // Auth.currentUser().then(function(user) {
@@ -9,13 +9,15 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', function($scope, $
    //          // unauthenticated error
    //          console.log("Unauthenticated user");
    //      });
-  
+  $scope.current_user = current_user;
   $scope.geo = storage.geo;
   
   $scope.getPlaces = storage.getGeoData;
 
   $scope.date = new Date(Date.now()- 60*60*24*364*1000);
-  $scope.search = storage.search;
+  $scope.searchForm = {};
+  $scope.searchForm.place = storage.search.place;
+  $scope.searchForm.date = storage.search.date;
   $scope.featured = storage.featured;
 
   
@@ -26,7 +28,9 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', function($scope, $
     storage.search.date = $scope.searchForm.date;
 
     //New map enter
-    
+    // Form {"place":{ "name":"Moskva, Город Москва, Russia",
+    //                 "location":{"lng":37.6067,"lat":55.7617}},
+    //                 "date":"2015-11-14T20:20:32.809Z"}
     storage.featured.center.lng = $scope.searchForm.place.location.lng;
     storage.featured.center.lat = $scope.searchForm.place.location.lat;
     $scope.featured.map.panTo($scope.featured.center);
@@ -34,9 +38,16 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', function($scope, $
   };
   
   // Building map
-  $scope.map = L.map('map').setView([48.858093, 2.34], 11);
-   
+  $scope.map = L.map('map',{
+    center: [48.858093, 2.34],
+    zoom: 11,
+    scrollWheelZoom: false
+  });
+
+  // .setView([48.858093, 2.34], 11);
   storage.featured.map = $scope.map;
+  
+  L.Icon.Default.imagePath = 'images';
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       maxZoom: 18,

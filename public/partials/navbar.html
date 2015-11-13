@@ -17,7 +17,9 @@
 
       <ul class="nav navbar-nav navbar-right">
 
-        <li ><a href = "https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz/callback&response_type=code"><i class="fa fa-bar-chart-o"></i> Sign In</a></li>
+        <li ng-hide='current_user' ><a href = "https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz/callback&response_type=code"><i class="fa fa-bar-chart-o"></i> Sign In</a></li>
+        <li ng-show='current_user'><img src="{{current_user.picture}}">{{current_user.full_name}}</li>
+        <li ng-show='current_user'><a ui-sref = "logout"><i class="fa fa-bar-chart-o"></i> Sign Out</a></li>
 
       </ul>
 

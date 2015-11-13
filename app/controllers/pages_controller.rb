@@ -7,7 +7,12 @@ class PagesController < ApplicationController
   # Instagram authorization
   def authorized
     respond_to do |format|
-      format.json {render json: !!current_user}
+      if signed_in_user?
+        format.json {render json: {username: current_user.username,
+                                    picture: current_user.inst_picture}}
+      else
+        format.json {render json: false}
+      end
     end
     
     # client_id = Rails.application.secrets.INSTAGRAM_CLIENT_ID
@@ -30,8 +35,10 @@ class PagesController < ApplicationController
       response = HTTParty.post("https://api.instagram.com/oauth/access_token", body: body.to_json, headers: {'Content-Type' => 'application/json'})
      
     elsif params[:user] && params[:access_token]
+      puts "No code, user is", params[:user], params[:access_token]
       redirect_to user_index_path, user: params[:user], access_token: params[:access_token]
     elsif params[:error]
+
       puts ["Auth Error:", error, params[:error_reason], [:error_description]].join(" ")
     else
       puts "Got response with no user or token", response

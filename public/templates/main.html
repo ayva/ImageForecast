@@ -1,6 +1,6 @@
 Total photos {{featured.cities.data.length}}
 
-
+Current user {{current_user}}
 <div class="container">
   <div class="row">
     <form class="form-inline" ng-model="searchForm" ng-submit="showForecast()">
@@ -10,18 +10,18 @@ Total photos {{featured.cities.data.length}}
         typeahead-no-results="noResults"
         typeahead-append-to-body = "true"
         typeahead-on-select = "searchForm.place = $item"
-        placeholder = "Find a place"
-        ng-model = "place"
-        ng-change="getPlaces(place)"
+
+        ng-model = "searchForm.place"
+        ng-change="getPlaces(searchForm.place)"
         class = "form-control"
         autocomplete="off">
         
-      <input  type="date" class="form-control"  ng-model="searchForm.date" value='{{search.date}}'>
+      <input  type="date" class="form-control"  ng-model="searchForm.date">
       
 
       <button type="submit" class="btn btn-default">Show me the future</button>
     </form>
- 
+
   </div>
 
   <h1>Map</h1>
@@ -35,7 +35,7 @@ Total photos {{featured.cities.data.length}}
   <div class="row">
     <div class="col-xs-6 col-md-3" ng-repeat="photo in featured.cities.data | orderBy: '-likes.count' ">
       <a href='{{photo.link}}' class="thumbnail">
-        <img ng-src='{{photo.images.thumbnail.url}}'>
+        <img id="photo.{{$index+1}}" ng-src='{{photo.images.standard_resolution.url}}'>
 <!--         <ul>
           <li>Posted by @{{photo.user.username}}</li>
           <li>Likes {{photo.likes.count}}</li>

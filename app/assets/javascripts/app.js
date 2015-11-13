@@ -12,6 +12,16 @@ var futugram = angular.module('futugram',['restangular', 'ui.router','ui.bootstr
     $stateProvider
       .state('index',{
         url: '/',
+        resolve: {
+          current_user: function($http){
+            $http.get('authorized').then(function(response){
+              return response.data;
+            }, function(error){
+              console.log("Resolve current user failed", error) ;
+              return false;
+            });
+          }
+        },
         views: {
           '':{
             templateUrl: 'templates/main.html',
