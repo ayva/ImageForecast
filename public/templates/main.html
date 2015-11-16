@@ -1,4 +1,3 @@
-<!--Total photos {{featured.cities.data.length}}-->
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -80,11 +79,11 @@
                     $($('.days-list')[0]).append('<li class=\'days\' style=\'width:' + dayWidth + 'px;\'>' + i + '</li>');
                 }
             }
-
+            $('.weather-info')[0].style.display = 'none';
             function wrapFirstPhoto() {
-                var cl = $('#photo-1')[0].className;
-                $('#photo-1')[0].className = cl + ' w-hide';
-                $('.w-hide').wrapAll('<div class = \'weather-hide\'></div>');
+                $('.weather-info')[0].style.display = 'block';
+                $('#photo-1')[0].className = '';
+                $($('#photo-1')[0]).appendTo('.weather-block-wrapper');
             }
 
             chosenMonth.className = 'clicked';
@@ -161,14 +160,14 @@
 
         <div class="row" id='photos'>
             <div class="weather-block-wrapper col-md-4">
-                <div class="weather-block w-hide thumbnail">
+                <div class="weather-block thumbnail">
                     <div class="weather-info">
                         <img class="weatherIcon" ng-src="/statics/images/sun-cloud.png">
 
                         <div class="degrees">
-                            <p class="fahrenheits">63 ºF</p>
+                            <div class="fahrenheits"><p>63 ºF</p></div>
 
-                            <p class="celsius">(17 ºC)</p>
+                            <div class="celsius"><p>(17 ºC)</p></div>
                         </div>
 
                         <div class="conditions">Mostly Cloudy</div>
@@ -178,20 +177,21 @@
             <div id="photo-{{$index+1}}" class="col-md-4"
                  ng-repeat="photo in featured.cities.data | orderBy: '-likes.count' ">
                 <a href={{photo.link}} class="thumbnail">
-                    <img ng-src='{{photo.images.thumbnail.url}}'>
+                    <img ng-src='{{photo.images.standard_resolution.url}}'>
+                    <span class="signature">Posted by @{{photo.user.username}}</span>
                 </a>
             </div>
         </div>
     </div>
-</div>
-<footer>
-    <span class="copyright">Copyright © 2015 Futugramm Inc. All rights reserved.</span>
+    <footer>
+        <span class="copyright">Copyright © 2015 Futugramm Inc. All rights reserved.</span>
 
-    <div class="rightBlock">
-        <a href="#" class="about">About</a>
-        <a href="#" class="follow">Follow us<img class="instIcon" ng-src="/statics/images/instagram.png"></a>
-    </div>
-</footer>
+        <div class="rightBlock">
+            <a href="#" class="about">About</a>
+            <a href="#" class="follow">Follow us<img class="instIcon" ng-src="/statics/images/instagram.png"></a>
+        </div>
+    </footer>
+</div>
 </div>
 </body>
 </html>

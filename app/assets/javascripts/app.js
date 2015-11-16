@@ -19,15 +19,6 @@ var futugram = angular.module('futugram',['restangular', 'ui.router','ui.bootstr
           }
         }
       })
-        .state('main',{
-          url: '/main',
-          views: {
-            '':{
-              templateUrl: 'templates/main2.html',
-              controller: 'mainCtrl2'
-            }
-          }
-        })
       .state('about',{
         url: '/about',
         views: {

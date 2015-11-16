@@ -1,220 +1,332 @@
-@media (min-width: 1025px) {
+@font-face {
+    font-family: digital;
+    src: url(/statics/fonts/digital-7.ttf);
+}
 
-    @font-face {
-        font-family: digital;
-        src: url(/statics/fonts/digital-7.ttf);
-    }
+.container {
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 0;
+}
 
-    .container {
-        color: white;
-        font-family: 'Orbitron', sans-serif;
-        width: 100%;
+.fullscreen-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+    width: 100%;
+    height: 350px;
+    margin: 0 auto;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 350px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 20pt;
+    margin-top: 3px;
+    float: left;
+}
+
+.sign {
+    float: right;
+    width: 80px;
+    height: 30px;
+    padding-top: 5px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.nav {
+    height: auto;
+}
+
+.explanation {
+    width: 100%;
+    line-height: 25px;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.cityInput {
+    width: 300px;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 30px;
+    font-family: digital, serif;
+}
+
+.cityInput .input {
+    width: 250px;
+    height: 40px;
+    float: left;
+    padding-left: 10px;
+    padding-top: 5px;
+    border: 2px solid white;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    color: rgb(01, 22, 33);
+    font-size: 20pt;
+}
+
+.cityInput .button {
+    width: 50px;
+    height: 40px;
+    float: left;
+    padding: 1px;
+    border: 2px solid white;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: transparent;
+    font-size: 20pt;
+}
+
+.sl {
+    display: inherit !important;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.slider-wrapper {
+    margin-top: 30px;
+}
+
+.months {
+    margin: 0 auto;
+    margin-bottom: 5px;
+    width: 650px;
+}
+
+.mnth-button {
+    background-color: transparent;
+    border: none;
+    width: 50px;
+}
+
+.clicked {
+    width: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    color: rgb(01, 22, 33);
+}
+
+button:focus, input:focus {
+    outline: 0;
+}
+
+.slider {
+    width: 700px;
+    margin: 0 auto !important;
+}
+
+.slider .track {
+    background: white;
+}
+
+.slider > .dragger {
+    background: white;
+    box-shadow: none;
+}
+
+.slider .dragger:hover {
+    background: white !important;
+}
+
+.output {
+    margin: 0 auto;
+    margin-top: 35px;
+    display: block;
+    width: 100px;
+    font-size: 14pt;
+}
+
+ul.days-list {
+    width: 720px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+li.days {
+    float: left;
+    list-style-type: none;
+    font-size: 9pt;
+    text-align: center;
+    font-family: digital, serif;
+    color: darkgray;
+}
+
+#map {
+    height: 180px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.weather-block-wrapper {
+    position: relative;
+    float: left;
+}
+
+.weather-block-wrapper:hover .weather-block {
+    display: none;
+}
+
+.weather-block {
+    background-color: rgba(01, 22, 33, 0.5);
+    background-clip: content-box;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+img.weatherIcon {
+    margin: 0 auto !important;
+    display: inherit !important;
+    margin-bottom: 10px !important;
+}
+
+.weatherIcon {
+    width: 50px;
+    height: 50px !important;
+}
+
+.weather-info {
+    width: 130px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}
+
+.degrees {
+    height: 30px;
+}
+
+.fahrenheits {
+    font-size: 14pt;
+    float: left;
+    margin-bottom: 0;
+    width: 50%;
+}
+
+.fahrenheits p {
+    float: right;
+    margin: 0;
+}
+
+.celsius {
+    height: 30px;
+    float: right;
+    padding: 8px 0 0 20px;
+    width: 50%;
+    font-size: 10pt;
+}
+
+.conditions {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.row {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.thumbnail {
+    border: 0 none;
+    box-shadow: none;
+    margin: 0 auto;
+    margin-bottom: 0;
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    padding: 20px;
+    color: white;
+    background-color: rgb(01, 22, 33);
+    font-size: 7pt;
+}
+
+footer a {
+    color: white;
+}
+
+footer .rightBlock {
+    float: right;
+    margin-top: -7px;
+}
+
+.copyright {
+    width: 200px;
+    display: block;
+    float: left;
+}
+
+.about {
+    margin-right: 10px;
+}
+
+.instIcon {
+    height: 40px;
+    margin-top: -5px;
+    margin-left: 5px;
+}
+
+.signature {
+    display: none;
+}
+
+@media (min-width: 320px) {
+    .col-md-4 {
+        width: 33.33333333%;
+        float: left;
         padding: 0;
     }
+}
 
-    .fullscreen-bg {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        overflow: hidden;
-        z-index: -100;
-        width: 100%;
-        height: 350px;
-        margin: 0 auto;
-    }
-
-    .fullscreen-bg__video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        max-width: 100%;
-    }
-
-    .header {
-        width: 100%;
-        height: 350px;
-        margin: 0 auto;
-        margin-bottom: 10px;
-        padding: 10px 20px;
-    }
-
-    .logo {
-        font-size: 20pt;
-        margin-top: 3px;
-        float: left;
-    }
-
-    .sign {
-        float: right;
-        width: 80px;
-        height: 30px;
-        padding-top: 5px;
-        border: 2px solid white;
-        border-radius: 10px;
-        background-color: transparent;
-    }
-
-    .nav {
-        height: auto;
+@media (min-width: 801px) {
+    .row {
+        padding: 0 30px;
     }
 
     .explanation {
-        width: 790px;
-        line-height: 25px;
-        margin: 0 auto;
-        margin-top: 20px;
-        text-align: center;
+        width: 760px;;
         font-size: 12pt;
     }
 
-    .cityInput {
-        width: 300px;
-        height: 40px;
-        margin: 0 auto;
-        margin-top: 30px;
-        font-family: digital, serif;
-    }
-
-    .cityInput .input {
-        width: 250px;
-        height: 40px;
-        float: left;
-        padding-left: 10px;
-        padding-top: 5px;
-        border: 2px solid white;
-        border-bottom-left-radius: 10px;
-        border-top-left-radius: 10px;
-        color: rgb(01, 22, 33);
-        font-size: 20pt;
-    }
-
-    .cityInput .button {
-        width: 50px;
-        height: 40px;
-        float: left;
-        padding: 1px;
-        border: 2px solid white;
-        border-bottom-right-radius: 10px;
-        border-top-right-radius: 10px;
-        background-color: transparent;
-        font-size: 20pt;
-    }
-
-    .sl {
-        display: inherit !important;
-        margin: 0 auto;
-        margin-top: 50px;
-    }
-
-    .slider-wrapper {
-        margin-top: 30px;
-    }
-
-    .months {
-        margin: 0 auto;
-        margin-bottom: 5px;
-        width: 650px;
-    }
-
-    .mnth-button {
-        background-color: transparent;
-        border: none;
-        width: 50px;
-    }
-
-    .clicked {
-        width: 50px;
-        background-color: white;
-        border: none;
-        border-radius: 5px;
-        height: 20px;
-        color: rgb(01, 22, 33);
-    }
-
-    button:focus, input:focus {
-        outline: 0;
-    }
-
-    .slider {
-        width: 700px;
-        margin: 0 auto !important;
-    }
-
-    .slider .track {
-        background: white;
-    }
-
-    .slider > .dragger {
-        background: white;
-        box-shadow: none;
-    }
-
-    .slider .dragger:hover {
-        background: white !important;
-    }
-
-    .output {
-        margin: 0 auto;
-        margin-top: 35px;
-        display: block;
-        width: 100px;
-        font-size: 14pt;
-    }
-
-    ul.days-list {
-        width: 720px;
-        margin: 0 auto;
-        padding: 0;
-    }
-
-    li.days {
-        float: left;
-        list-style-type: none;
-        font-size: 9pt;
-        text-align: center;
-        font-family: digital, serif;
-        color: darkgray;
-    }
-
-    #map {
-        height: 180px;
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: 10px;
-    }
-
-    .weather-block-wrapper {
-        position: relative;
-        float: left;
-    }
-
-    .weather-hide {
-        position: absolute;
-        height: 328px;
-    }
-
-    .w-hide {
-        width: 100%;
-        height: 100%;
-    }
-
-    .weather-block-wrapper:hover .weather-block {
-        display: none;
+    .weather-info {
+        bottom: 60px;
+        width: 210px;
     }
 
     .weather-block {
-        background-color: rgba(01, 22, 33, 0.5);
-        background-clip: content-box;
-        position: absolute;
-        z-index: 1;
-    }
-
-    img.weatherIcon {
-        margin: 0 auto !important;
-        display: inherit !important;
-        margin-bottom: 10px !important;
+        padding-bottom: 40px;
     }
 
     .weatherIcon {
@@ -222,78 +334,49 @@
         height: 90px !important;
     }
 
-    .weather-info {
-        width: 50%;
-        float: right;
-        margin-top: 150px;
-    }
-
     .degrees {
-        height: 40px;
-        padding: 0 10px;
+        height: 45px;
     }
 
     .fahrenheits {
         font-size: 20pt;
-        float: left;
-        margin-bottom: 0;
     }
 
     .celsius {
-        float: right;
-        margin: 13px 0 0 10px;
+        font-size: 14pt;
+        height: 30px;
     }
 
-    .conditions {
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .row {
-        width: 1000px;
-        margin: 0 auto;
-    }
-
-    .col-md-4 {
-        padding: 0;
+    .signature {
+        color: rgb(01, 22, 33);
+        font-size: 9pt;
+        display: block;
     }
 
     .thumbnail {
-        border: 0 none;
-        box-shadow: none;
-    }
-
-    .thumbnail img {
-        margin-right: inherit;
-        margin-left: inherit;
-        height: 320px;
+        margin-bottom: 20px;
     }
 
     footer {
-        width: 100%;
-        height: 60px;
-        margin: 0 auto;
-        padding: 20px;
-        color: white;
-        background-color: rgb(01, 22, 33);
+        font-size: 10pt;
     }
 
-    footer a {
-        color: white;
-    }
-
-    footer .rightBlock {
-        float: right;
-        margin-top: -5px;
+    .copyright {
+        width: 500px;
+        display: block;
+        float: left;
     }
 
     .about {
         margin-right: 30px;
     }
+}
 
-    .instIcon {
-        height: 40px;
-        margin-top: -5px;
-        margin-left: 5px;
+@media (min-width: 1025px) {
+
+    .weather-info {
+        float: right;
+        right: 10px;
+        margin-right: inherit;
     }
 }
