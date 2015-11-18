@@ -1,14 +1,5 @@
 futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', function($scope, $http, storage, current_user){
-  // Authorization
-   
-   // Auth.currentUser().then(function(user) {
-   //          // User was logged in, or Devise returned
-   //          // previously authenticated session.
-   //          console.log("User", user); // => {id: 1, ect: '...'}
-   //      }, function(error) {
-   //          // unauthenticated error
-   //          console.log("Unauthenticated user");
-   //      });
+
   $scope.current_user = storage.current_user;
   console.log("In main ctrl current user is", current_user);
   $scope.geo = storage.geo;
@@ -94,7 +85,7 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', fu
 
 
   //Show data for Paris
-  storage.get_future_city($scope.date,{name: "Paris",
+  storage.get_featured_city($scope.date,{name: "Paris",
                                       location: {lng: 2.344694,
                                                  lat: 48.858093
                                                 }

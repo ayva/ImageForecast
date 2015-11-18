@@ -19,12 +19,23 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
                  date: addDays(new Date(), 1)};
 
 
-  // obj.get_featured_city = function(){
-  //   Restangular.all('photos').customGET('featuredCity').then(function(response){
-  //     obj.featured.cities = response;
-
-  //   });
-  // };
+  obj.get_featured_city = function(date, place){
+    var d = new Date(date);
+    min = d.setHours(0,0,0,0);
+    max = d.setHours(24,0,0,0);
+    Restangular.all('photos').customGET('featuredCity',
+      { time : {min: min, max: max},
+        place : place
+      }).then(function(response){
+      if (response.status){
+          obj.featured.cities = response.data;
+          obj.updateMarkers(place);
+      }
+      else {
+        console.log(response.message);
+      }
+    });
+  };
 
   obj.current_user = {data: undefined };
   //Grabbing photos from Instagram by place and date
