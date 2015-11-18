@@ -3,6 +3,12 @@
     src: url(/statics/fonts/digital-7.ttf);
 }
 
+#user-icon {
+  height: 40px; 
+  border-radius:20px; 
+  margin-top: 5px;
+}
+
 .wrapper {
     color: white;
     font-family: 'Orbitron', sans-serif;

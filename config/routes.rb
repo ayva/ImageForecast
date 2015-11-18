@@ -5,10 +5,18 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  # Example of regular route:
+  # Angular Data:
      get 'photos/featuredCity' => 'photos#featuredCity'
      get 'photos/futureCity' => 'photos#futureCity'
 
+  # Authorization
+     get 'authorized' => 'pages#authorized'
+     get 'callback' => 'pages#callback'
+     get 'test' => 'pages#test'
+  # resource :session, :only => [:create, :destroy]   
+  resources :users
+  get "sessions/login" => "sessions#create"
+  get "sessions/logout" => "sessions#destroy"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

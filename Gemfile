@@ -7,11 +7,19 @@ gem 'rails', '4.2.3'
 gem 'pg'
 
 gem 'figaro'
+
 #Work with API
 gem 'httparty'
 
 # Angular
 gem 'angularjs-rails'
+
+#Authorization
+# source "https://rails-assets.org" do
+#   gem "rails-assets-angular-devise"
+# end
+# gem omniauth
+
 gem 'angular_rails_csrf'
 
 # Use SCSS for stylesheets
@@ -40,6 +48,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+#Angular
+source 'https://rails-assets.org' do
+  gem 'rails-assets-leaflet'
+end
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
