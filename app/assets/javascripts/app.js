@@ -13,8 +13,11 @@ var futugram = angular.module('futugram',['restangular', 'ui.router','ui.bootstr
       .state('index',{
         url: '/',
         resolve: {
-          current_user: function($http){
-            $http.get('authorized').then(function(response){
+          current_user: function($http, storage){
+            return $http.get('authorized.json').then(function(response){
+              console.log("Authorized?",  response.data);
+              
+              storage.current_user.data = response.data;
               return response.data;
             }, function(error){
               console.log("Resolve current user failed", error) ;

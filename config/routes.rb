@@ -10,13 +10,13 @@ Rails.application.routes.draw do
      get 'photos/futureCity' => 'photos#futureCity'
 
   # Authorization
-     get 'authorized' => 'pages#auth'
+     get 'authorized' => 'pages#authorized'
      get 'callback' => 'pages#callback'
-
-  resource :session, :only => [:create, :destroy]   
-  resources :user, :only => [:create, :destroy]   
-  get "login" => "session#create"
-  get "logout" => "session#destroy"
+     get 'test' => 'pages#test'
+  # resource :session, :only => [:create, :destroy]   
+  resources :users
+  get "sessions/login" => "sessions#create"
+  get "sessions/logout" => "sessions#destroy"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

@@ -17,11 +17,14 @@ class PhotosController < ApplicationController
     time = params[:time]
     place = params[:place]
     puts "Search in #{place} at #{time}"
-  
-    @photos = Instagram.get_images_by_location_and_date(place, time)
-
     respond_to do |format|
-      format.json {render json: @photos}
+      if current_user
+        @photos = Instagram.get_images_by_location_and_date(place, time
+          )
+        format.json {render json: {status: true, data: @photos}}
+      else
+        format.json {render json: {status: false, message: "Please login before search the future."}}
+      end
     end
   end
 

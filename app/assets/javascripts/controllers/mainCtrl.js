@@ -9,7 +9,8 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', fu
    //          // unauthenticated error
    //          console.log("Unauthenticated user");
    //      });
-  $scope.current_user = current_user;
+  $scope.current_user = storage.current_user;
+  console.log("In main ctrl current user is", current_user);
   $scope.geo = storage.geo;
   
   $scope.getPlaces = storage.getGeoData;
@@ -18,6 +19,9 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', fu
   $scope.searchForm = {};
   $scope.searchForm.place = storage.search.place;
   $scope.searchForm.date = storage.search.date;
+
+  $scope.search = storage.search;
+
   $scope.featured = storage.featured;
 
   
@@ -26,11 +30,6 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', fu
     //New search query
     storage.search.place = $scope.searchForm.place.name;
     storage.search.date = $scope.searchForm.date;
-
-    //New map enter
-    // Form {"place":{ "name":"Moskva, Город Москва, Russia",
-    //                 "location":{"lng":37.6067,"lat":55.7617}},
-    //                 "date":"2015-11-14T20:20:32.809Z"}
     storage.featured.center.lng = $scope.searchForm.place.location.lng;
     storage.featured.center.lat = $scope.searchForm.place.location.lat;
     $scope.featured.map.panTo($scope.featured.center);
@@ -44,7 +43,7 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', fu
     scrollWheelZoom: false
   });
 
-  // .setView([48.858093, 2.34], 11);
+ 
   storage.featured.map = $scope.map;
   
   L.Icon.Default.imagePath = 'images';
@@ -79,10 +78,12 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', fu
     };
 
     $scope.featured.map.panTo($scope.featured.center);
-
+    //Grab a name of clicked location
+    storage.getGeoName(storage.featured.center);
     //Grabbing places for choosen location
+    console.log("Looking for picks by click");
     storage.get_future_city($scope.date,
-                            { name: "Click on map",
+                            { name: storage.search.place.name,
                               location: {lng: lng,
                                                  lat: lat
                                                 }

@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
     respond_to do |format|
-      format.json {render json: "You've successfully signed out"}
+      format.json {render json: {status: true, message: "You've successfully signed out"}}
     end
   end
 

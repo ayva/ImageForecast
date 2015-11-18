@@ -13,8 +13,11 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
     return result;
   }
 
-  obj.search = { place: "Paris",
+  obj.search = { place: { name: "Paris",
+                          location: {"lng":37.6067,"lat":55.7617}
+                        },
                  date: addDays(new Date(), 1)};
+
 
   // obj.get_featured_city = function(){
   //   Restangular.all('photos').customGET('featuredCity').then(function(response){
@@ -23,6 +26,7 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
   //   });
   // };
 
+  obj.current_user = {data: undefined };
   //Grabbing photos from Instagram by place and date
   obj.get_future_city = function(date, place){
     var d = new Date(date);
@@ -34,13 +38,16 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
         place : place
       }).then(function(response){
          //Moving map center 
+        if (response.status){
           console.log("Center ", obj.featured.center);
 
           // obj.featured.map.panTo(obj.featured.center);
 
           // Updating data
-          obj.featured.cities = response;
+          obj.featured.cities = response.data;
           obj.updateMarkers(place);
+        }
+        else {console.log(response.message);}
         });
     
     // .catch(console.log.bind(console));
@@ -74,6 +81,18 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
 
 
   //Autocomplite search by place
+  obj.getGeoName = function(location){
+    return $http({
+            method: 'GET',
+            url: 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+location.lng+','+location.lat+'.json?access_token=pk.eyJ1IjoiYXl2YSIsImEiOiJjaWY0OXE0NWkzNXc1c2ttMms0dzlkdHI0In0.-KmRnZgS76kFVEcBCNJG6Q'
+          }).then(function(response){
+      
+            obj.search.place.name = response.data.features[0].place_name;
+          },
+          function(error){
+            console.log("Name of clicked location was not returned");
+          });
+  };
   obj.getGeoData = function(address){
     return $http({
             method: 'GET',
