@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require moment.js
+//= require transition.js
+//= require collapse.js
+//= require bootstrap.min.js
+//= require bootstrap-datetimepicker.min.js
 //= require angular
 //= require angular-ui-router.min.js
 //= require bootstrap3-typeahead.min.js

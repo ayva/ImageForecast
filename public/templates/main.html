@@ -4,99 +4,9 @@
     <meta charset="UTF-8">
     <title></title>
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-
-    <script>
-        angular.element(document).ready(function () {
-            var chosenMonth = $("[data-month='" + getCurrentMonth() + "']")[0],
-                    day = getCurrentDay(),
-                    month = getCurrentMonth(),
-                    date = day + ' ' + month,
-                    days = 30,
-                    dayWidth = 720 / days;
-
-            $("[data-slider]").each(function () {
-                var $el, allowedValues, settings, x;
-                $el = $(this);
-                settings = {};
-                allowedValues = $el.data("slider-values");
-                if (allowedValues) {
-                    settings.allowedValues = (function () {
-                        var _i, _len, _ref, _results;
-                        _ref = allowedValues.split(",");
-                        _results = [];
-                        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                            x = _ref[_i];
-                            _results.push(parseFloat(x));
-                        }
-                        return _results;
-                    })();
-                }
-                if ($el.data("slider-range")) {
-                    settings.range = $el.data("slider-range").split(",");
-                }
-                if ($el.data("slider-step")) {
-                    settings.step = $el.data("slider-step");
-                }
-                settings.snap = $el.data("slider-snap");
-                return $el.simpleSlider(settings);
-            });
-
-            $("#slider-input")
-                    .each(function () {
-                        var input = $(this);
-                    })
-                    .bind("slider:ready slider:changed", function (event, data) {
-                        day = data.value.toFixed(0);
-                        $($('.output')[0]).html(day + ' ' + $(chosenMonth).text());
-                    });
-
-            $('.mnth-button').on('click', function () {
-                if ($('.clicked')[0]) {
-                    $('.clicked')[0].className = 'mnth-button';
-                }
-                this.className = 'clicked';
-                chosenMonth = $('.clicked')[0];
-                $($('.output')[0]).html(day + ' ' + $(chosenMonth).text());
-            });
-
-            function getCurrentMonth() {
-                var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-                    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
-                ];
-
-                var d = new Date();
-                return monthNames[d.getMonth()];
-            }
-
-            function getCurrentDay() {
-                var d = new Date();
-                return d.getDate();
-            }
-
-
-            function daysInSlider(days) {
-                for (var i = 1; i <= days; i++) {
-                    $($('.days-list')[0]).append('<li class=\'days\' style=\'width:' + dayWidth + 'px;\'>' + i + '</li>');
-                }
-            }
-            $('.weather-info')[0].style.display = 'none';
-            function wrapFirstPhoto() {
-                $('.weather-info')[0].style.display = 'block';
-                $('#photo-1')[0].className = '';
-                $($('#photo-1')[0]).appendTo('.weather-block-wrapper');
-            }
-
-            chosenMonth.className = 'clicked';
-            $($(".output")[0]).text(date);
-            $("#slider-input").simpleSlider("setValue", day);
-
-            daysInSlider(days);
-            setTimeout(wrapFirstPhoto, 2000);
-        });
-    </script>
 </head>
 <body>
-<div class="container">
+<div class="wrapper">
     <div class="header">
         <div class="fullscreen-bg">
             <video loop muted autoplay poster="" class="fullscreen-bg__video">
@@ -107,6 +17,7 @@
             <div class="logo">FUTUGRAMM</div>
             <button class="sign">SIGN IN</button>
         </div>
+
         <p class="explanation">Futugramm shows how it will look in the coming year through the eyes of those,
             who already have been there. Select a city, a date of a planned trip, and a point on map.</p>
 
@@ -150,7 +61,29 @@
             </div>
 
         </form>
+
+        <div class="container">
+            <div class="row">
+                <div class='col-sm-6'>
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#datetimepicker1').datetimepicker();
+                    });
+                </script>
+            </div>
+        </div>
+
     </div>
+
     <div class="map-wrapper">
         <div id="map"></div>
     </div>

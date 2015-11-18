@@ -1,1 +1,0 @@
-futugram.controller('mainCtrl2', ['$scope', '$http','storage', function($scope, $http, storage){}]);

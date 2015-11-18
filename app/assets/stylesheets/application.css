@@ -12,6 +12,7 @@
  *= require bootstrap.min.css
  *= require bootstrap-theme.min.css
  *= require simple-slider.css
+ *= require bootstrap-datetimepicker.min.css
  *= require leaflet.css
  *= require_tree .
  *= require_self
