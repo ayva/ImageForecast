@@ -19,7 +19,7 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', fu
 
   $scope.showForecast = function(){
     //New search query
-    storage.search.place = $scope.searchForm.place.name;
+    storage.search.place = $scope.searchForm.place;
     storage.search.date = $scope.searchForm.date;
     storage.featured.center.lng = $scope.searchForm.place.location.lng;
     storage.featured.center.lat = $scope.searchForm.place.location.lat;
@@ -67,7 +67,7 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', fu
       lng: lng,
       lat: lat
     };
-
+    storage.search.place.location = storage.featured.center;
     $scope.featured.map.panTo($scope.featured.center);
     //Grab a name of clicked location
     storage.getGeoName(storage.featured.center);
@@ -85,7 +85,6 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', fu
 
 
   //Show data for Paris
-  console.log("Getting FEATURED");
   storage.get_featured_city($scope.date,{name: "Paris",
                                       location: {lng: 2.344694,
                                                  lat: 48.858093
