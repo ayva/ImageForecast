@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   # Authorization
      get 'authorized' => 'pages#authorized'
      get 'callback' => 'pages#callback'
-     get 'test' => 'pages#test'
-  # resource :session, :only => [:create, :destroy]   
+  
   resources :users
   get "sessions/login" => "sessions#create"
   get "sessions/logout" => "sessions#destroy"

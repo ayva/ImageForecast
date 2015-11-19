@@ -65,13 +65,16 @@ class PagesController < ApplicationController
         
       else
         puts "Creating a user"
-
-        @user = User.find_or_create_by(username: JSON.parse(response.body)["user"]["username"])
-        # @user.username = JSON.parse(response.body)["user"]["username"]
-        @user.full_name = JSON.parse(response.body)["user"]["full_name"]
-        @user.inst_id = JSON.parse(response.body)["user"]["id"]
-        @user.inst_token = JSON.parse(response.body)["access_token"]
-        @user.inst_picture = JSON.parse(response.body)["user"]["profile_picture"]
+        binding.pry
+        res_user = JSON.parse(response.body)["user"]
+        res_token = JSON.parse(response.body)["access_token"]
+        @user = User.find_or_create_by(username: res_user["username"])
+      
+        @user.full_name = res_user["full_name"]
+        @user.inst_id = res_user["id"]
+        @user.inst_token = res_token
+        @user.inst_picture = res_user["profile_picture"]
+        puts "Saving a user"
         if @user.save
           sign_in(@user)
           puts "user created", @user
