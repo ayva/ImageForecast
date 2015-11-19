@@ -28,8 +28,10 @@
   <h1>Map</h1>
 
   <div id='map'></div>
-
-
+Search {{search}}
+<br>
+Current user {{current_user}}
+  <h2>Weather: {{weather.forecast.temperature}} F, {{weather.forecast.summary}}</h2>
   <h1 class="row text-center">{{search.place.name}} on {{search.date}}</h1>
   
   <h4 class="text-center" ng-if="featured.cities.data.length == 0 ">No photos for this place. Try another date or place.</h4 class="text-center">
@@ -37,14 +39,7 @@
     <div class="col-xs-6 col-md-3" ng-repeat="photo in featured.cities.data | orderBy: '-likes.count' ">
       <a href='{{photo.link}}' class="thumbnail">
         <img id="photo.{{$index+1}}" ng-src='{{photo.images.standard_resolution.url}}'>
-<!--         <ul>
-          <li>Posted by @{{photo.user.username}}</li>
-          <li>Likes {{photo.likes.count}}</li>
-          <li>Tags total {{photo.tags}}</li>
-          <li>Created at {{photo.created_time}}</li>
-          <li>Created at {{photo.created_date}}</li>
-          <li ng-repeat='tag in photo.tags'>{{tag}}</li>
-        </ul> -->
+
       </a>
     </div>
   </div>
