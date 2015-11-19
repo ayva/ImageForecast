@@ -85,6 +85,7 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', fu
 
 
   //Show data for Paris
+  console.log("Getting FEATURED");
   storage.get_featured_city($scope.date,{name: "Paris",
                                       location: {lng: 2.344694,
                                                  lat: 48.858093

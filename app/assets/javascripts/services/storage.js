@@ -27,8 +27,10 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
       { time : {min: min, max: max},
         place : place
       }).then(function(response){
+        console.log("Response with cities", response);
       if (response.status){
           obj.featured.cities = response.data;
+          console.log("Cities from featured", obj.featured.cities);
           obj.updateMarkers(place);
       }
       else {
@@ -49,6 +51,7 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
         place : place
       }).then(function(response){
          //Moving map center 
+
         if (response.status){
           console.log("Center ", obj.featured.center);
 
@@ -56,6 +59,7 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
 
           // Updating data
           obj.featured.cities = response.data;
+          console.log("Cities from future", obj.featured.cities);
           obj.updateMarkers(place);
         }
         else {console.log(response.message);}
