@@ -1,5 +1,9 @@
 futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', function($scope, $http, storage, current_user){
 
+
+  $scope.$on('photos:uploaded', function(event){
+    console.log("Got confirmation photos uploaded!", storage.weather);
+  });
   $scope.current_user = storage.current_user;
   console.log("In main ctrl current user is", current_user);
   $scope.geo = storage.geo;
@@ -23,7 +27,9 @@ futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', fu
     storage.search.date = $scope.searchForm.date;
     storage.featured.center.lng = $scope.searchForm.place.location.lng;
     storage.featured.center.lat = $scope.searchForm.place.location.lat;
+    //Moving map
     $scope.featured.map.panTo($scope.featured.center);
+    //Laoding photos
     storage.showForecast($scope.searchForm.date, $scope.searchForm.place);
   };
   

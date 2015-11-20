@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       if signed_in_user?
         format.json {render json: {username: current_user.username,picture: current_user.inst_picture}}
-        # {username: current_user.username,picture: current_user.inst_picture}
+    
       else
         format.json {render json: false}
       end
@@ -57,7 +57,7 @@ class PagesController < ApplicationController
           puts "failed"
         end
       end
-     redirect_to root_path
+     
     
       
   end

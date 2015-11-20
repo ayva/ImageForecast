@@ -1,4 +1,4 @@
-futugram.service('storage',['$http','Restangular', function($http,Restangular){
+futugram.service('storage',['$http','$rootScope','Restangular', function($http, $rootScope, Restangular){
   var obj = {};
 
   obj.featured = {};
@@ -33,11 +33,12 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
       { time : {min: min, max: max},
         place : place
       }).then(function(response){
-        console.log("Response with cities", response);
+        
       if (response.status){
           obj.featured.cities = response.data;
           obj.weather.forecast = response.weather;
           console.log("Tempreture", obj.weather.forecast, " C" );
+          $rootScope.$broadcast('photos:uploaded');
           console.log("Cities from featured", obj.featured.cities.data.length);
           obj.updateMarkers(place);
       }
