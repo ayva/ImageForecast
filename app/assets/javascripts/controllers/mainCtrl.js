@@ -1,6 +1,4 @@
 futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user', 'main', function ($scope, $http, storage, current_user, main) {
-    // Authorization
-futugram.controller('mainCtrl', ['$scope', '$http','storage', 'current_user', function($scope, $http, storage, current_user){
 
   $scope.current_user = storage.current_user;
   console.log("In main ctrl current user is", current_user);

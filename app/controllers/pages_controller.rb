@@ -65,7 +65,6 @@ class PagesController < ApplicationController
         
       else
         puts "Creating a user"
-        binding.pry
         res_user = JSON.parse(response.body)["user"]
         res_token = JSON.parse(response.body)["access_token"]
         @user = User.find_or_create_by(username: res_user["username"])

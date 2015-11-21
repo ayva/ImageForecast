@@ -1,45 +1,36 @@
+<nav class="navbar">
+        <div class="navbar-header">
+            <div class="logo">FUTUGRAMM</div>
+            <ul class="nav navbar-nav navbar-right">
 
-<nav class="navbar" ng-class = "landing ? 'nav-transparent' : 'navbar-inverse' ">
-  <div class="container-fluid">
-    <div class="navbar-header" >
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+                <li ng-hide='current_user.data'>
+                    <button href="https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code"
+                            class='sign'><i class="fa fa-bar-chart-o"></i>SIGN IN
+                    </button>
+                </li>
+                <li ng-show='current_user.data' style="color: white;"><img src="{{current_user.data.picture}}"
+                                                                           id="user-icon">{{current_user.data.username}}
+                </li>
+                <li ng-show='current_user.data'><a ng-click="Logout()"><i class="fa fa-bar-chart-o"></i> Sign Out</a>
+                </li>
 
-      <a class="navbar-brand" ui-sref="main">
-        Futugram
-      </a>
-
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-
-      <ul class="nav navbar-nav navbar-right">
-
-        <li ng-hide='current_user.data' ><a href = "https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code"><i class="fa fa-bar-chart-o"></i> Sign In</a></li>
-        <li ng-show='current_user.data' style="color: white;"><img  src="{{current_user.data.picture}}" id="user-icon">{{current_user.data.username}}</li>
-        <li ng-show='current_user.data'><a ng-click = "Logout()"><i class="fa fa-bar-chart-o"></i> Sign Out</a></li>
-
-      </ul>
-
-<!--       <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input  type="text"
-                  name = "user"
-                  required="string"
-                  
-                  typeahead-no-results="noResults"
-                  typeahead-append-to-body = "true"
-                  typeahead-on-select = "go($item)"
-                  placeholder = "Find a blogger"
-                  ng-model = "user"
-                  class = "form-control">
+            </ul>
         </div>
-        <!-- <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button> -->
-      </form> -->
 
-    </div>
-      
-  </div>
+        <!--       <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                  <input  type="text"
+                          name = "user"
+                          required="string"
+
+                          typeahead-no-results="noResults"
+                          typeahead-append-to-body = "true"
+                          typeahead-on-select = "go($item)"
+                          placeholder = "Find a blogger"
+                          ng-model = "user"
+                          class = "form-control">
+                </div>
+                <!-- <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button> -->
+        </form>
+
 </nav>

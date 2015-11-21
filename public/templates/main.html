@@ -13,10 +13,6 @@
                 <source ng-src="/statics/video/headerVideo.ogv" type="video/ogg">
             </video>
         </div>
-        <div class="nav">
-            <div class="logo">FUTUGRAMM</div>
-            <button class="sign">SIGN IN</button>
-        </div>
 
         <p class="explanation">Futugramm shows how it will look in the coming year through the eyes of those,
             who already have been there. Select a city, a date of a planned trip, and a point on map.</p>
@@ -36,11 +32,7 @@
                        autocomplete="off">
                 <button type="submit" class="button">GO</button>
 
-                <!--<input  type="date" class="form-control"  ng-model="searchForm.date">-->
-                <!--<button ng-show="current_user.data" type="submit" class="btn-->
-                <!--btn-default">Show me the future</button>-->
-                <!--<a ng-hide="current_user.data" href = "https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code" class="btn btn-default">Please login to search the future</a>-->
-            </div>
+                 </div>
             <div class="slider-wrapper">
                 <div class="months">
                     <button type='button' class="mnth-button" data-month='JAN'>JAN</button>
@@ -66,13 +58,17 @@
             </div>
 
         </form>
+        <!--<input  type="date" class="form-control"  ng-model="searchForm.date">-->
+        <!--<button ng-show="current_user.data" type="submit" class="btn-->
+        <!--btn-default">Show me the future</button>-->
+        <!--<a ng-hide="current_user.data" href = "https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code" class="btn btn-default">Please login to search the future</a>-->
 
         <div class="container">
             <div class="row">
                 <div class='col-sm-6'>
                     <div class="form-group">
                         <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control"/>
+                            <input type='text' class="form-control" ng-model="searchForm.date"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -92,7 +88,7 @@
     <div class="map-wrapper">
         <div id="map"></div>
 
-        <!--<h1 class="row text-center">{{search.place.name}} on {{search.date}}</h1>-->
+        <h1 class="row text-center" style="color: black">{{search.place.name}} on {{search.date}}</h1>
         <!--<h4 class="text-center" ng-if="featured.cities.data.length == 0 ">No photos for this place. Try another date or place.</h4 class="text-center">-->
         <!--         <ul>
                   <li>Posted by @{{photo.user.username}}</li>

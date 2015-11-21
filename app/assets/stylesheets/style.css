@@ -4,9 +4,9 @@
 }
 
 #user-icon {
-  height: 40px; 
-  border-radius:20px; 
-  margin-top: 5px;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 5px;
 }
 
 .wrapper {
@@ -20,6 +20,33 @@
 
 .container {
     color: rgb(01, 22, 33);
+    max-width: 500px;
+}
+
+.navbar {
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 0;
+}
+
+.navbar-header {
+    width: 100%;
+    padding: 10px;
+}
+
+.navbar-inverse {
+    background: transparent none;
+    border-color: transparent;
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+
+.navbar-right {
+    margin-right: 0;
+}
+
+.navbar-nav {
+    margin: 0;
 }
 
 .fullscreen-bg {
@@ -44,7 +71,7 @@
 
 .header {
     width: 100%;
-    height: 350px;
+    height: 290px;
     margin: 0 auto;
     margin-bottom: 10px;
     padding: 10px 20px;
@@ -60,21 +87,16 @@
     float: right;
     width: 80px;
     height: 30px;
-    padding-top: 5px;
+    margin-top: 5px;
     border: 2px solid white;
     border-radius: 10px;
     background-color: transparent;
-}
-
-.nav {
-    height: auto;
 }
 
 .explanation {
     width: 100%;
     line-height: 25px;
     margin: 0 auto;
-    margin-top: 20px;
     text-align: center;
     font-size: 10pt;
 }
@@ -148,6 +170,11 @@
 }
 
 button:focus, input:focus {
+    outline: 0;
+}
+
+input.form-control.ng-pristine.ng-valid.ng-touched {
+    border: none;
     outline: 0;
 }
 
@@ -324,9 +351,30 @@ footer .rightBlock {
     }
 }
 
+@media (max-width: 660px) {
+    .cityInput {
+        margin-top: 20px;
+    }
+    .col-sm-6 {
+        margin-top: 30px !important;
+    }
+}
+
 @media (max-width: 801px) {
     .slider-wrapper {
         display: none;
+    }
+
+    .header {
+        height: 250px;
+    }
+
+    .fullscreen-bg {
+        height: 310px;
+    }
+
+    .explanation {
+        line-height: 20px;
     }
 }
 
@@ -408,6 +456,7 @@ footer .rightBlock {
 
 @media (min-width: 768px) {
     .col-sm-6 {
+        width: 100%;
         float: none;
         margin: 0 auto;
     }
