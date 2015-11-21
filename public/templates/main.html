@@ -99,6 +99,13 @@
                   <li ng-repeat='tag in photo.tags'>{{tag}}</li>
                 </ul> -->
     </div>
+    Search {{search}}
+    Weather {{gotWeather}}
+    <br>
+    Current user {{current_user}}
+    <h2>Weather: {{weather.forecast.temperature}} F, {{weather.forecast.summary}}</h2>
+    <h1 class="row text-center">{{search.place.name}} on {{search.date}}</h1>
+
     <div class="photoBlock">
         <h4 class="text-center" ng-if="featured.cities.data.length == 0 ">No photos for this place. Try another date or
             place.</h4>

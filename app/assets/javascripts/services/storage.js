@@ -1,4 +1,4 @@
-futugram.service('storage',['$http','Restangular', function($http,Restangular){
+futugram.service('storage',['$http','$rootScope','Restangular', function($http, $rootScope, Restangular){
   var obj = {};
 
   obj.featured = {};
@@ -6,6 +6,12 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
     lng: 2.344694,
     lat: 48.858093
     };
+
+  obj.weather = {};
+
+  // obj.getWeather = function(date, place){Restangular.all('photos').customGET('weather', )
+  // };
+
 
   function addDays(date, days) {
     var result = new Date(date);
@@ -27,8 +33,13 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
       { time : {min: min, max: max},
         place : place
       }).then(function(response){
+        
       if (response.status){
           obj.featured.cities = response.data;
+          obj.weather.forecast = response.weather;
+          console.log("Tempreture", obj.weather.forecast, " C" );
+          $rootScope.$broadcast('photos:uploaded');
+          console.log("Cities from featured", obj.featured.cities.data.length);
           obj.updateMarkers(place);
       }
       else {
@@ -49,13 +60,17 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
         place : place
       }).then(function(response){
          //Moving map center 
+
         if (response.status){
           console.log("Center ", obj.featured.center);
 
           // obj.featured.map.panTo(obj.featured.center);
 
           // Updating data
+          obj.weather.forecast = response.weather;
+          console.log("Tempreture", obj.weather.forecast, " C" );
           obj.featured.cities = response.data;
+          console.log("Cities from future", obj.featured.cities);
           obj.updateMarkers(place);
         }
         else {console.log(response.message);}
@@ -67,20 +82,12 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
   obj.updateMarkers = function(center){
       //Removing old markers
        if (obj.featured.markers){obj.featured.markers.clearLayers();}
-       // if (obj.featured.cicles) {obj.featured.cicles.clearLayers();}
-      
 
       // Adding photos to map
       angular.forEach(obj.featured.cities.data, function(spot){
       var new_marker = L.marker([spot.location.latitude, spot.location.longitude]).bindPopup('<h4>@'+spot.user.username+'</h4> <h5>in '+spot.location.name).addTo(obj.featured.markers);
       });
 
-      //Adding a cicle
-      // var new_cicle = L.circle([center.location.lng, center.location.lat], 1700, {
-      //   color: 'red',
-      //   fillColor: '#f03',
-      //   fillOpacity: 0.5
-      // }).addTo(obj.featured.cicles);
   };
 
   obj.showForecast = function(date, place){
@@ -88,8 +95,6 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
   };
 
   obj.geo = {};
-  // obj.geo.features = [{text: "Paris, France"}];
-
 
   //Autocomplite search by place
   obj.getGeoName = function(location){
@@ -97,7 +102,7 @@ futugram.service('storage',['$http','Restangular', function($http,Restangular){
             method: 'GET',
             url: 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+location.lng+','+location.lat+'.json?access_token=pk.eyJ1IjoiYXl2YSIsImEiOiJjaWY0OXE0NWkzNXc1c2ttMms0dzlkdHI0In0.-KmRnZgS76kFVEcBCNJG6Q'
           }).then(function(response){
-      
+            console.log("Returned names",response.data)
             obj.search.place.name = response.data.features[0].place_name;
           },
           function(error){
