@@ -7,7 +7,7 @@ futugram.service('main', function () {
         days = 30,
         dayWidth = 720 / days;
 
-    this.init = function() {
+    this.init = function () {
 
         $("[data-slider]").each(function () {
             var $el, allowedValues, settings, x;
@@ -59,11 +59,9 @@ futugram.service('main', function () {
         chosenMonth.className = 'clicked';
         $($(".output")[0]).text(date);
         $("#slider-input").simpleSlider("setValue", day);
-
-        setTimeout(wrapFirstPhoto, 2000);
     };
 
-     function wrapFirstPhoto() {
+    this.wrapFirstPhoto = function () {
         $('.weather-info')[0].style.display = 'block';
         $('#photo-1')[0].className = '';
         $($('#photo-1')[0]).appendTo('.weather-block-wrapper');
@@ -84,7 +82,7 @@ futugram.service('main', function () {
     }
 
 
-    this.daysInSlider = function() {
+    this.daysInSlider = function () {
         for (var i = 1; i <= days; i++) {
             $($('.days-list')[0]).append('<li class=\'days\' style=\'width:' + dayWidth + 'px;\'>' + i + '</li>');
         }

@@ -3,11 +3,12 @@ futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user', '
 
   $scope.$on('photos:uploaded', function(event){
     console.log("Got confirmation photos uploaded!", storage.weather);
+    setTimeout(main.wrapFirstPhoto, 1000);
   });
   $scope.current_user = storage.current_user;
   console.log("In main ctrl current user is", current_user);
   $scope.geo = storage.geo;
-  
+
   $scope.getPlaces = storage.getGeoData;
 
   $scope.searchForm = {};
@@ -19,7 +20,7 @@ futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user', '
   $scope.featured = storage.featured;
 
   $scope.weather = storage.weather;
-  
+
 
   $scope.showForecast = function(){
     //New search query
@@ -32,7 +33,7 @@ futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user', '
     //Laoding photos
     storage.showForecast($scope.searchForm.date, $scope.searchForm.place);
   };
-  
+
   // Building map
   $scope.map = L.map('map',{
     center: [48.858093, 2.34],
@@ -40,9 +41,9 @@ futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user', '
     scrollWheelZoom: false
   });
 
- 
+
   storage.featured.map = $scope.map;
-  
+
   L.Icon.Default.imagePath = 'images';
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -51,8 +52,8 @@ futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user', '
       accessToken: 'pk.eyJ1IjoiYXl2YSIsImEiOiJjaWY0OXE0NWkzNXc1c2ttMms0dzlkdHI0In0.-KmRnZgS76kFVEcBCNJG6Q'
   }).addTo($scope.map);
 
-  
-  
+
+
   storage.featured.markers = new L.LayerGroup().addTo($scope.map);
 
   //Searching for photos by click on map

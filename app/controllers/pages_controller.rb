@@ -57,8 +57,8 @@ class PagesController < ApplicationController
           puts "failed"
         end
       end
-     
-    
+
+    redirect_to root_path
       
   end
 

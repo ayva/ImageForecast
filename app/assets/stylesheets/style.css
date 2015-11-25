@@ -7,6 +7,15 @@
     height: 40px;
     border-radius: 20px;
     margin-top: 5px;
+    margin-right: 10px;
+}
+
+.name{
+    margin-right: 20px;
+}
+
+.sign-wrapper{
+    float: right;
 }
 
 .wrapper {
@@ -83,13 +92,26 @@
     float: left;
 }
 
+.name {
+    float: right;
+    color: white;
+}
+
 .sign {
     float: right;
-    width: 80px;
-    height: 30px;
+    color: white;
+    width: 100%;
+    line-height: 5px !important;
+    height: 35px;
     margin-top: 5px;
     border: 2px solid white;
     border-radius: 10px;
+    background-color: transparent;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+    text-decoration: none;
+    color: white;
     background-color: transparent;
 }
 
@@ -250,10 +272,10 @@ img.weatherIcon {
     margin-bottom: 10px !important;
 }
 
-.weatherIcon {
-    width: 50px;
-    height: 50px !important;
-}
+/*.weatherIcon {*/
+    /*width: 50px;*/
+    /*height: 50px !important;*/
+/*}*/
 
 .weather-info {
     width: 130px;
@@ -351,26 +373,31 @@ footer .rightBlock {
     }
 }
 
-@media (max-width: 660px) {
-    .cityInput {
-        margin-top: 20px;
-    }
-    .col-sm-6 {
-        margin-top: 30px !important;
+@media (min-width: 768px) {
+    .navbar-nav>li {
+        float: right !important;
     }
 }
+
 
 @media (max-width: 801px) {
     .slider-wrapper {
         display: none;
     }
-
+    .navbar-nav>li>a {
+        padding-top: 15px;
+    }
     .header {
         height: 250px;
     }
 
     .fullscreen-bg {
-        height: 310px;
+        max-width: none;
+    }
+
+    .fullscreen-bg__video {
+        max-width: none;
+        width: inherit;
     }
 
     .explanation {
@@ -401,10 +428,10 @@ footer .rightBlock {
         padding-bottom: 40px;
     }
 
-    .weatherIcon {
-        width: 90px;
-        height: 90px !important;
-    }
+    /*.weatherIcon {*/
+        /*width: 90px;*/
+        /*height: 90px !important;*/
+    /*}*/
 
     .degrees {
         height: 45px;
@@ -459,5 +486,28 @@ footer .rightBlock {
         width: 100%;
         float: none;
         margin: 0 auto;
+    }
+}
+
+@media (max-width: 660px) {
+    .cityInput {
+        margin-top: 20px;
+    }
+
+    .col-sm-6 {
+        margin-top: 30px !important;
+    }
+
+    .fullscreen-bg__video {
+        height: inherit;
+        width: initial;
+    }
+
+    #user-icon{
+        display: none;
+    }
+
+    .name{
+        margin-top: 15px;
     }
 }
