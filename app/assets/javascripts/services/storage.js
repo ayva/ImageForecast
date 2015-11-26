@@ -38,7 +38,7 @@ futugram.service('storage',['$http','$rootScope','Restangular', function($http, 
           obj.featured.cities = response.data;
           obj.weather.forecast = response.weather;
           console.log("Tempreture", obj.weather.forecast, " C" );
-          $rootScope.$broadcast('photos:uploaded');
+          $rootScope.$broadcast('photos:uploaded', response);
           console.log("Cities from featured", obj.featured.cities.data.length);
           obj.updateMarkers(place);
       }
