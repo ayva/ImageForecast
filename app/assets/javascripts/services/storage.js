@@ -25,28 +25,34 @@ futugram.service('storage',['$http','$rootScope','Restangular', function($http, 
                  date: addDays(new Date(), 1)};
 
 
-  obj.get_featured_city = function(date, place){
-    var d = new Date(date);
-    min = d.setHours(0,0,0,0);
-    max = d.setHours(24,0,0,0);
-    Restangular.all('photos').customGET('featuredCity',
-      { time : {min: min, max: max},
-        place : place
-      }).then(function(response){
-        
-      if (response.status){
-          obj.featured.cities = response.data;
-          obj.weather.forecast = response.weather;
-          console.log("Tempreture", obj.weather.forecast, " C" );
-          $rootScope.$broadcast('photos:uploaded', response);
-          console.log("Cities from featured", obj.featured.cities.data.length);
-          obj.updateMarkers(place);
-      }
-      else {
-        console.log(response.message);
-      }
-    });
-  };
+    obj.get_featured_city = function (date, place) {
+        var d = new Date(date);
+        min = d.setHours(0, 0, 0, 0);
+        max = d.setHours(24, 0, 0, 0);
+        Restangular.all('photos').customGET('featuredCity',
+            {
+                time: {min: min, max: max},
+                place: place
+            }).then(function (response) {
+
+                if (response.status) {
+                    obj.featured.cities = response.data;
+                    obj.weather.forecast = response.weather;
+                    var celsius = (response.weather.temperature - 32) / 1.8;
+                    var farenheits = (response.weather.temperature).toFixed(0);
+                    obj.weather.forecast.celsius = celsius.toFixed(0);
+                    obj.weather.forecast.farenheits = farenheits;
+                    console.log("Tempreture", obj.weather.forecast, " C");
+                    $rootScope.$broadcast('photos:uploaded');
+                    console.log("Cities from featured", obj.featured.cities.data.length);
+                    obj.updateMarkers(place);
+                }
+                else {
+                    console.log(response.message);
+                }
+            });
+    };
+
 
   obj.current_user = {data: undefined };
   //Grabbing photos from Instagram by place and date
@@ -59,7 +65,7 @@ futugram.service('storage',['$http','$rootScope','Restangular', function($http, 
       { time : {min: min, max: max},
         place : place
       }).then(function(response){
-         //Moving map center 
+         //Moving map center
 
         if (response.status){
           console.log("Center ", obj.featured.center);
@@ -75,7 +81,7 @@ futugram.service('storage',['$http','$rootScope','Restangular', function($http, 
         }
         else {console.log(response.message);}
         });
-    
+
     // .catch(console.log.bind(console));
   };
 
@@ -128,7 +134,7 @@ futugram.service('storage',['$http','$rootScope','Restangular', function($http, 
 
         }, function errorCallback(response) {
           console.log("No geo info returned for address ", address);
-   
+
         });
   };
 

@@ -58,12 +58,8 @@ class PagesController < ApplicationController
         end
       end
 
-      redirect_to root_path
-      # respond_to do |format|
-        
-      #     format.json {render json: {username: @user.username,picture: @user.inst_picture}}
-      # end
-    
+    redirect_to root_path
+
       
   end
 

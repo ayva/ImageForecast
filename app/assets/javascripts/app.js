@@ -35,7 +35,6 @@ var futugram = angular.module('futugram',['restangular', 'ui.router','ui.bootstr
             controller: 'navbarCtrl'
           }
         }
-
       })
       .state('about',{
         url: '/about',
@@ -48,5 +47,4 @@ var futugram = angular.module('futugram',['restangular', 'ui.router','ui.bootstr
       });
 
       $urlRouterProvider.otherwise('/');
-}])
-;
+}]);
