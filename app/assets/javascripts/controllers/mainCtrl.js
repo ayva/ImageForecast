@@ -1,6 +1,5 @@
 futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user', 'main', function ($scope, $http, storage, current_user, main) {
 
-
   $scope.$on('photos:uploaded', function(event){
     console.log("Got confirmation photos uploaded!", storage.weather);
     setTimeout(main.wrapFirstPhoto, 1000);
@@ -14,6 +13,15 @@ futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user', '
   $scope.searchForm = {};
   $scope.searchForm.place = storage.search.place;
   $scope.searchForm.date = storage.search.date;
+  // Datepicker
+   $(function () {
+                            $('#datetimepicker1').datetimepicker({
+                              
+                              keepOpen: true
+                                
+                            });
+
+                        });
 
   $scope.search = storage.search;
 

@@ -6,66 +6,7 @@
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<nav class="navbar">
-    <div class="navbar-header">
-        <div class="logo">FUTUGRAMM</div>
-        <ul class="nav navbar-nav navbar-right">
 
-
-<!-- <div class="container">
-  <div class="row">
-    <form class="form-inline" ng-model="searchForm" ng-submit="showForecast()">
-      <input  type="text"
-        required="string" 
-        uib-typeahead="place.name for place in geo.places"
-        typeahead-no-results="noResults"
-        typeahead-append-to-body = "true"
-        typeahead-on-select = "searchForm.place = $item"
-
-        ng-model = "searchForm.place.name"
-        ng-change="getPlaces(searchForm.place.name)"
-        class = "form-control"
-        autocomplete="off">
-      
-      <input  type="date" class="form-control"  ng-model="searchForm.date">
-      
-
-      <button ng-show="current_user.data" type="submit" class="btn 
-      btn-default">Show me the future</button>
-      <a ng-hide="current_user.data" href = "https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code" class="btn btn-default">Please login to search the future</a>
-
-    </form>
-
-  </div>
-
-  <h1>Map</h1>
-
-  <div id='map'></div>
-
-  <h2>Weather: {{weather.forecast.temperature}} F, {{weather.forecast.summary}}</h2>
-  <h1 class="row text-center">{{search.place.name}} on {{search.date}}</h1>
-  
-  <h4 class="text-center" ng-if="featured.cities.data.length == 0 ">No photos for this place. Try another date or place.</h4 class="text-center">
-  <div class="row">
-    <div class="col-xs-6 col-md-3" ng-repeat="photo in featured.cities.data | orderBy: '-likes.count' ">
-      <a href='{{photo.link}}' class="thumbnail">
-        <img id="photo.{{$index+1}}" ng-src='{{photo.images.standard_resolution.url}}'>
-
-      </a> -->
-
-            <li ng-hide='current_user.data' class="sign-wrapper">
-                <a href="https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code"
-                   class='sign'><i class="fa fa-bar-chart-o"></i>SIGN IN</a>
-            </li>
-            <li ng-show='current_user.data' class="sign-wrapper"><a ng-click="Logout()" class='sign'><i
-                    class="fa fa-bar-chart-o"></i> SIGN OUT</a>
-            </li>
-            <li ng-show='current_user.data' style="color: white;" class="name"><img src="{{current_user.data.picture}}" id="user-icon">{{current_user.data.username}}
-            </li>
-
-        </ul>
-    </div>
-</nav>
 <div class="wrapper">
     <div class="header">
         <div class="fullscreen-bg">
@@ -93,6 +34,8 @@
                 <button type="submit" class="button">GO</button>
 
             </div>
+            
+
             <div class="slider-wrapper">
                 <div class="months">
                     <button type='button' class="mnth-button" data-month='JAN'>JAN</button>
@@ -117,8 +60,7 @@
                 <div><span class="output"></span></div>
             </div>
 
-
-            <!--<input  type="date" class="form-control"  ng-model="searchForm.date">-->
+           <!--<input  type="date" class="form-control"  ng-model="searchForm.date">-->
             <!--<button ng-show="current_user.data" type="submit" class="btn-->
             <!--btn-default">Show me the future</button>-->
             <!--<a ng-hide="current_user.data" href = "https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code" class="btn btn-default">Please login to search the future</a>-->
@@ -128,28 +70,32 @@
                     <div class='col-sm-6'>
                         <div class="form-group">
                             <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" ng-model="searchForm.date"/>
+
+                                <input type='text' class="form-control"  ng-model="searchForm.date"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                             </div>
                         </div>
                     </div>
-                    <script type="text/javascript">
-                        $(function () {
-                            $('#datetimepicker1').datetimepicker();
-                        });
-                    </script>
+                   
                 </div>
             </div>
         </form>
 
     </div>
-
     <div class="map-wrapper">
         <div id="map"></div>
         <h1 class="row text-center" style="color: black">{{search.place.name}} on {{search.date}}</h1>
 
+    </div>
+    <div style="color: black">
+
+      Form {{searchForm}}
+      <br>
+      Storage search {{search}}
+      <br>
+      Date {{mobiledate}}
     </div>
 
     <div class="photoBlock">
@@ -193,22 +139,7 @@
 </body>
 </html>
 
-<!--<h4 class="text-center" ng-if="featured.cities.data.length == 0 ">No photos for this place. Try another date or place.</h4 class="text-center">-->
-<!--         <ul>
-          <li>Posted by @{{photo.user.username}}</li>
-          <li>Likes {{photo.likes.count}}</li>
-          <li>Tags total {{photo.tags}}</li>
-          <li>Created at {{photo.created_time}}</li>
-          <li>Created at {{photo.created_date}}</li>
-          <li ng-repeat='tag in photo.tags'>{{tag}}</li>
-        </ul> -->
-<!--</div>-->
-<!--Search {{search}}-->
-<!--Weather {{gotWeather}}-->
-<!--<br>-->
-<!--Current user {{current_user}}-->
-<!--<h2>Weather: {{weather.forecast.temperature}} F, {{weather.forecast.summary}}</h2>-->
-<!--<h1 class="row text-center">{{search.place.name}} on {{search.date}}</h1>-->
+
 
 
 

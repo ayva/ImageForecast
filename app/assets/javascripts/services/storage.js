@@ -20,7 +20,7 @@ futugram.service('storage',['$http','$rootScope','Restangular', function($http, 
   }
 
   obj.search = { place: { name: "Paris",
-                          location: {"lng":37.6067,"lat":55.7617}
+                          location: {"lng":2.344694,"lat":48.858093}
                         },
                  date: addDays(new Date(), 1)};
 
