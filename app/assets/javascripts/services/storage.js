@@ -75,7 +75,12 @@ futugram.service('storage',['$http','$rootScope','Restangular', function($http, 
           // Updating data
           obj.weather.forecast = response.weather;
           console.log("Tempreture", obj.weather.forecast, " C" );
+            var celsius = (response.weather.temperature - 32) / 1.8;
+            var farenheits = (response.weather.temperature).toFixed(0);
+            obj.weather.forecast.celsius = celsius.toFixed(0);
+            obj.weather.forecast.farenheits = farenheits;
           obj.featured.cities = response.data;
+            $rootScope.$broadcast('photos:uploaded');
           console.log("Cities from future", obj.featured.cities);
           obj.updateMarkers(place);
         }

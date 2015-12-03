@@ -27,11 +27,6 @@
     padding: 0;
 }
 
-.container {
-    color: rgb(01, 22, 33);
-    max-width: 500px;
-}
-
 .navbar {
     color: white;
     font-family: 'Orbitron', sans-serif;
@@ -144,7 +139,7 @@
     font-size: 20pt;
 }
 
-.cityInput .button {
+.cityInput .button{
     width: 50px;
     height: 40px;
     float: left;
@@ -239,6 +234,23 @@ li.days {
     text-align: center;
     font-family: digital, serif;
     color: darkgray;
+}
+
+.calendar-container {
+    color: rgb(01, 22, 33);
+    margin-top: 40px;
+}
+
+#datepicker{
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 10px;
+    border: none;
+    font-size: 18pt;
+    width: 300px;
+    font-family: digital, serif;
 }
 
 #map {
@@ -415,7 +427,7 @@ footer .rightBlock {
         font-size: 12pt;
     }
 
-    .container {
+    .calendar-container {
         display: none;
     }
 

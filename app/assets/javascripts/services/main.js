@@ -1,14 +1,14 @@
-futugram.service('main', function () {
+futugram.service('main', ['$rootScope', function ($rootScope) {
 
     var chosenMonth = $("[data-month='" + getCurrentMonth() + "']")[0],
         day = getCurrentDay(),
         month = getCurrentMonth(),
-        date = day + ' ' + month,
-        days = 30,
-        dayWidth = 720 / days;
+        date = day + ' ' + month;
 
-    this.init = function () {
-
+    this.initSlider = function (steps) {
+        if ($(".slider")[0]) {
+            $(".slider")[0].remove();
+        }
         $("[data-slider]").each(function () {
             var $el, allowedValues, settings, x;
             $el = $(this);
@@ -27,7 +27,7 @@ futugram.service('main', function () {
                 })();
             }
             if ($el.data("slider-range")) {
-                settings.range = $el.data("slider-range").split(",");
+                settings.range = steps.split(",");
             }
             if ($el.data("slider-step")) {
                 settings.step = $el.data("slider-step");
@@ -44,6 +44,10 @@ futugram.service('main', function () {
                 day = data.value.toFixed(0);
                 $($('.output')[0]).html(day + ' ' + $(chosenMonth).text());
             });
+        $("#slider-input").simpleSlider("setValue", day);
+    };
+
+    this.init = function () {
 
         $('.mnth-button').on('click', function () {
             if ($('.clicked')[0]) {
@@ -58,14 +62,24 @@ futugram.service('main', function () {
 
         chosenMonth.className = 'clicked';
         $($(".output")[0]).text(date);
-        $("#slider-input").simpleSlider("setValue", day);
+
+        $(function () {
+            $("#datepicker").datepicker({
+                onSelect: function (date, ins) {
+                    $rootScope.$broadcast('mobile-calendar:uploaded', {date: ins});
+                }
+            });
+            $("#format").change(function () {
+                $("#datepicker").datepicker("option", "dateFormat", $(this).val());
+            });
+        });
     };
 
     this.wrapFirstPhoto = function () {
         $('.weather-info')[0].style.display = 'block';
         $('#photo-1')[0].className = '';
         $($('#photo-1')[0]).appendTo('.weather-block-wrapper');
-    }
+    };
 
     function getCurrentMonth() {
         var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
@@ -82,9 +96,16 @@ futugram.service('main', function () {
     }
 
 
-    this.daysInSlider = function () {
+    this.daysInSlider = function (days) {
+        $($('.days-list')[0]).html('');
+        var dayWidth = 720 / days;
         for (var i = 1; i <= days; i++) {
             $($('.days-list')[0]).append('<li class=\'days\' style=\'width:' + dayWidth + 'px;\'>' + i + '</li>');
         }
-    }
-});
+    };
+
+    this.daysInMonth = function (month, year) {
+        return new Date(year, month, 0).getDate();
+    };
+
+}]);
