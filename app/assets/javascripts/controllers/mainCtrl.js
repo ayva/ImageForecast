@@ -1,8 +1,8 @@
-futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user', 'main', function ($scope, $http, storage, current_user, main) {
+futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user',  function ($scope, $http, storage, current_user) {
 
   $scope.$on('photos:uploaded', function(event){
     console.log("Got confirmation photos uploaded!", storage.weather);
-    setTimeout(main.wrapFirstPhoto, 1000);
+    // setTimeout(main.wrapFirstPhoto, 1000);
   });
   $scope.current_user = storage.current_user;
   console.log("In main ctrl current user is", current_user);
@@ -14,21 +14,23 @@ futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user', '
   $scope.searchForm.place = storage.search.place;
   $scope.searchForm.date = storage.search.date;
   // Datepicker
-   $(function () {
-                            $('#datetimepicker1').datetimepicker({
+   // $(function () {
+   //                          $('#datetimepicker1').datetimepicker({
                               
-                              keepOpen: true
+   //                            keepOpen: true
                                 
-                            });
+   //                          });
 
-                        });
+   //                      });
 
   $scope.search = storage.search;
 
   $scope.featured = storage.featured;
 
   $scope.weather = storage.weather;
-
+  $scope.print = function(m){
+    console.log("Month", m);
+  }
 
   $scope.showForecast = function(){
     //New search query
@@ -100,6 +102,6 @@ futugram.controller('mainCtrl', ['$scope', '$http', 'storage', 'current_user', '
                                                 }
                                       }
                           );
-    main.init();
-    main.daysInSlider();
+    // main.init();
+    // main.daysInSlider();
 }]);
