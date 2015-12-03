@@ -20,6 +20,8 @@
 //= require angular
 //= require angular-ui-router.min.js
 //= require bootstrap3-typeahead.min.js
+//= require jquery-2.1.4.min.js
+//= require jquery-ui.min.js
 //= require simple-slider.js
 //= require typeahead.bundle.min.js
 //= require typeahead.js
