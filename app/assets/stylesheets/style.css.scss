@@ -4,542 +4,571 @@
   border-radius: 80px;
   width: 160px;
 }
+
 .gitlink {
   img {
-    height:30px; 
-    margin-bottom: 5px; 
-    margin-right: 10px; 
+    height: 30px;
+    margin-bottom: 5px;
+    margin-right: 10px;
   }
-  color: #222222; 
+  color: #222222;
   text-decoration: none;
 
 }
+
 .gitlink:hover {
   text-decoration: none;
 }
 
 @font-face {
-    font-family: digital;
-    src: url(/statics/fonts/digital-7.ttf);
+  font-family: digital;
+  src: url(/statics/fonts/digital-7.ttf);
 }
 
 #user-icon {
-    height: 40px;
-    border-radius: 20px;
-    margin-top: 5px;
-    margin-right: 10px;
-}
-
-.name{
-    margin-right: 20px;
-}
-
-.sign-wrapper{
-    float: right;
-}
-
-.wrapper {
-    color: white;
-    font-family: 'Orbitron', sans-serif;
-    width: 100%;
-    max-width: 2000px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.navbar {
-    color: white;
-    font-family: 'Orbitron', sans-serif;
-    margin-bottom: 0;
-}
-
-.navbar-header {
-    width: 100%;
-    padding: 10px;
-}
-
-.navbar-inverse {
-    background: transparent none;
-    border-color: transparent;
-    padding-top: 10px;
-    margin-bottom: 0;
-}
-
-.navbar-right {
-    margin-right: 0;
-}
-
-.navbar-nav {
-    margin: 0;
-}
-
-.fullscreen-bg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
-    width: 100%;
-    height: 350px;
-    margin: 0 auto;
-}
-
-.fullscreen-bg__video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    max-width: 100%;
-}
-
-.header {
-    width: 100%;
-    height: 290px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-}
-
-.logo {
-    font-size: 20pt;
-    margin-top: 3px;
-    float: left;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 5px;
+  margin-right: 10px;
 }
 
 .name {
-    float: right;
-    color: white;
+  margin-right: 20px;
+}
+
+.sign-wrapper {
+  float: right;
+}
+
+.wrapper {
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.navbar {
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 0;
+}
+
+.navbar-header {
+  width: 100%;
+  padding: 10px;
+}
+
+.navbar-inverse {
+  background: transparent none;
+  border-color: transparent;
+  padding-top: 10px;
+  margin-bottom: 0;
+}
+
+.navbar-right {
+  margin-right: 0;
+}
+
+.navbar-nav {
+  margin: 0;
+}
+
+.fullscreen-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+  width: 100%;
+  height: 350px;
+  margin: 0 auto;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 290px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 20pt;
+  margin-top: 3px;
+  float: left;
+}
+
+.name {
+  float: right;
+  color: white;
 }
 
 .sign {
-    float: right;
-    color: white;
-    width: 100%;
-    line-height: 5px !important;
-    height: 35px;
-    margin-top: 5px;
-    border: 2px solid white;
-    border-radius: 10px;
-    background-color: transparent;
+  float: right;
+  color: white;
+  width: 100%;
+  line-height: 5px !important;
+  height: 35px;
+  margin-top: 5px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: transparent;
 }
 
 .nav > li > a:focus, .nav > li > a:hover {
-    text-decoration: none;
-    color: white;
-    background-color: transparent;
+  text-decoration: none;
+  color: white;
+  background-color: transparent;
 }
 
 .explanation {
-    width: 100%;
-    line-height: 25px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 10pt;
+  width: 100%;
+  line-height: 25px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 10pt;
 }
 
 .cityInput {
-    width: 300px;
-    height: 40px;
-    margin: 0 auto;
-    margin-top: 30px;
-    font-family: digital, serif;
+  width: 300px;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-family: digital, serif;
 }
 
 .cityInput .input {
-    width: 250px;
-    height: 40px;
-    float: left;
-    padding-left: 10px;
-    padding-top: 5px;
-    border: 2px solid white;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-    color: rgb(01, 22, 33);
-    font-size: 20pt;
+  width: 250px;
+  height: 40px;
+  float: left;
+  padding-left: 10px;
+  padding-top: 5px;
+  border: 2px solid white;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  color: rgb(01, 22, 33);
+  font-size: 20pt;
 }
 
-.cityInput .button{
-    width: 50px;
-    height: 40px;
-    float: left;
-    padding: 1px;
-    border: 2px solid white;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: transparent;
-    font-size: 20pt;
+.cityInput .button {
+  width: 50px;
+  height: 40px;
+  float: left;
+  padding: 1px;
+  border: 2px solid white;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: transparent;
+  font-size: 20pt;
+  color: gray;
+  cursor: not-allowed;
+}
+
+.disable {
+  color: white !important;
+  cursor: pointer !important;
 }
 
 .sl {
-    display: inherit !important;
-    margin: 0 auto;
-    margin-top: 50px;
+  display: inherit !important;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 .slider-wrapper {
-    margin-top: 30px;
+  margin-top: 30px;
+  height: 80px;
 }
 
 .months {
-    margin: 0 auto;
-    margin-bottom: 5px;
-    width: 650px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  width: 650px;
 }
 
 .mnth-button {
-    background-color: transparent;
-    border: none;
-    width: 50px;
+  background-color: transparent;
+  border: none;
+  width: 50px;
+}
+
+.show {
+  background-color: transparent;
+  color: white;
+  line-height: 5px !important;
+  height: 35px;
+  border: 2px solid white;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 30px;
 }
 
 .clicked {
-    width: 50px;
-    background-color: white;
-    border: none;
-    border-radius: 5px;
-    height: 20px;
-    color: rgb(01, 22, 33);
+  width: 50px;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  height: 20px;
+  color: rgb(01, 22, 33);
 }
 
 .col-sm-6 {
-    margin-top: 40px !important;
+  margin-top: 40px !important;
 }
 
 button:focus, input:focus {
-    outline: 0;
+  outline: 0;
 }
 
 input.form-control.ng-pristine.ng-valid.ng-touched {
-    border: none;
-    outline: 0;
+  border: none;
+  outline: 0;
 }
 
 .slider {
-    width: 700px;
-    margin: 0 auto !important;
+  width: 700px;
+  margin: 0 auto !important;
 }
 
 .slider .track {
-    background: white;
+  background: white;
 }
 
 .slider > .dragger {
-    background: white;
-    box-shadow: none;
+  background: white;
+  box-shadow: none;
 }
 
 .slider .dragger:hover {
-    background: white !important;
+  background: white !important;
 }
 
 .output {
-    margin: 0 auto;
-    margin-top: 35px;
-    display: block;
-    width: 100px;
-    font-size: 14pt;
+  margin: 0 auto;
+  margin-top: 35px;
+  display: block;
+  width: 100px;
+  font-size: 14pt;
 }
 
 ul.days-list {
-    width: 720px;
-    margin: 0 auto;
-    padding: 0;
+  width: 720px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 li.days {
-    float: left;
-    list-style-type: none;
-    font-size: 9pt;
-    text-align: center;
-    font-family: digital, serif;
-    color: darkgray;
+  float: left;
+  list-style-type: none;
+  font-size: 9pt;
+  text-align: center;
+  font-family: digital, serif;
+  color: darkgray;
 }
 
 .calendar-container {
-    color: rgb(01, 22, 33);
-    margin-top: 40px;
+  color: rgb(01, 22, 33);
+  margin-top: 30px;
 }
 
-#datepicker{
-    display: block;
-    margin: 0 auto;
-    height: 40px;
-    border-radius: 10px;
-    padding: 0 10px;
-    border: none;
-    font-size: 18pt;
-    width: 300px;
-    font-family: digital, serif;
+#datepicker {
+  display: block;
+  margin: 0 auto;
+  height: 40px;
+  border-radius: 10px;
+  padding: 0 10px;
+  border: none;
+  font-size: 18pt;
+  width: 300px;
+  font-family: digital, serif;
+}
+
+.login-request {
+  color: white;
+  margin: 0 auto;
+  width: 300px;
+  text-align: center;
+  display: block;
+  margin-top: 15px;
 }
 
 #map {
-    height: 180px;
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 10px;
+  height: 180px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 .weather-block-wrapper {
-    position: relative;
-    float: left;
+  position: relative;
+  float: left;
 }
 
 .weather-block-wrapper:hover .weather-block {
-    display: none;
+  display: none;
 }
 
 .weather-block {
-    background-color: rgba(01, 22, 33, 0.5);
-    background-clip: content-box;
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
+  background-color: rgba(01, 22, 33, 0.5);
+  background-clip: content-box;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
 }
 
 img.weatherIcon {
-    margin: 0 auto !important;
-    display: inherit !important;
-    margin-bottom: 10px !important;
+  margin: 0 auto !important;
+  display: inherit !important;
+  margin-bottom: 10px !important;
 }
 
 /*.weatherIcon {*/
-    /*width: 50px;*/
-    /*height: 50px !important;*/
+/*width: 50px;*/
+/*height: 50px !important;*/
 /*}*/
 
 .weather-info {
-    width: 130px;
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
+  width: 130px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
 }
 
 .degrees {
-    height: 30px;
+  height: 30px;
 }
 
 .fahrenheits {
-    font-size: 14pt;
-    float: left;
-    margin-bottom: 0;
-    width: 50%;
+  font-size: 14pt;
+  float: left;
+  margin-bottom: 0;
+  width: 50%;
 }
 
 .fahrenheits p {
-    float: right;
-    margin: 0;
+  float: right;
+  margin: 0;
 }
 
 .celsius {
-    height: 30px;
-    float: right;
-    padding: 8px 0 0 20px;
-    width: 50%;
-    font-size: 10pt;
+  height: 30px;
+  float: right;
+  padding: 8px 0 0 20px;
+  width: 50%;
+  font-size: 10pt;
 }
 
 .conditions {
-    margin: 0 auto;
-    text-align: center;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .row {
-    padding: 0;
-    margin: 0 auto;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .thumbnail {
-    border: 0 none;
-    box-shadow: none;
-    margin: 0 auto;
-    margin-bottom: 0;
+  border: 0 none;
+  box-shadow: none;
+  margin: 0 auto;
+  margin-bottom: 0;
 }
 
 footer {
-    width: 100%;
-    height: 60px;
-    margin: 0 auto;
-    padding: 20px;
-    color: white;
-    background-color: rgb(01, 22, 33);
-    font-size: 7pt;
+  width: 100%;
+  height: 60px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+  background-color: rgb(01, 22, 33);
+  font-size: 7pt;
 }
 
 footer a {
-    color: white;
+  color: white;
 }
 
 footer .rightBlock {
-    float: right;
-    margin-top: -7px;
+  float: right;
+  margin-top: -7px;
 }
 
 .copyright {
-    width: 200px;
-    display: block;
-    float: left;
+  width: 200px;
+  display: block;
+  float: left;
 }
 
 .about {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .instIcon {
-    height: 40px;
-    margin-top: -5px;
-    margin-left: 5px;
+  height: 40px;
+  margin-top: -5px;
+  margin-left: 5px;
 }
 
 .signature {
-    display: none;
+  display: none;
 }
 
 @media (min-width: 320px) {
-    .col-md-4 {
-        width: 33.33333333%;
-        float: left;
-        padding: 0;
-    }
+  .col-md-4 {
+    width: 33.33333333%;
+    float: left;
+    padding: 0;
+  }
 }
 
 @media (min-width: 768px) {
-    .navbar-nav>li {
-        float: right !important;
-    }
+  .navbar-nav > li {
+    float: right !important;
+  }
 }
 
-
 @media (max-width: 801px) {
-    .slider-wrapper {
-        display: none;
-    }
-    .navbar-nav>li>a {
-        padding-top: 15px;
-    }
-    .header {
-        height: 250px;
-    }
+  .slider-wrapper {
+    display: none;
+  }
+  .navbar-nav > li > a {
+    padding-top: 15px;
+  }
+  .header {
+    height: 250px;
+  }
 
-    .fullscreen-bg {
-        max-width: none;
-    }
+  .fullscreen-bg {
+    max-width: none;
+  }
 
-    .fullscreen-bg__video {
-        max-width: none;
-        width: inherit;
-    }
+  .fullscreen-bg__video {
+    max-width: none;
+    width: inherit;
+  }
 
-    .explanation {
-        line-height: 20px;
-    }
+  .explanation {
+    line-height: 20px;
+  }
 }
 
 @media (min-width: 801px) {
-    .row {
-        padding: 0 30px;
-    }
+  .row {
+    padding: 0 30px;
+  }
 
-    .explanation {
-        width: 760px;;
-        font-size: 12pt;
-    }
+  .explanation {
+    width: 760px;;
+    font-size: 12pt;
+  }
 
-    .calendar-container {
-        display: none;
-    }
+  .calendar-container {
+    display: none;
+  }
 
-    .weather-info {
-        bottom: 60px;
-        width: 210px;
-    }
+  .weather-info {
+    bottom: 60px;
+    width: 210px;
+  }
 
-    .weather-block {
-        padding-bottom: 40px;
-    }
+  .weather-block {
+    padding-bottom: 40px;
+  }
 
-    /*.weatherIcon {*/
-        /*width: 90px;*/
-        /*height: 90px !important;*/
-    /*}*/
+  /*.weatherIcon {*/
+  /*width: 90px;*/
+  /*height: 90px !important;*/
+  /*}*/
 
-    .degrees {
-        height: 45px;
-    }
+  .degrees {
+    height: 45px;
+  }
 
-    .fahrenheits {
-        font-size: 20pt;
-    }
+  .fahrenheits {
+    font-size: 20pt;
+  }
 
-    .celsius {
-        font-size: 14pt;
-        height: 30px;
-    }
+  .celsius {
+    font-size: 14pt;
+    height: 30px;
+  }
 
-    .signature {
-        color: rgb(01, 22, 33);
-        font-size: 9pt;
-        display: block;
-    }
+  .signature {
+    color: rgb(01, 22, 33);
+    font-size: 9pt;
+    display: block;
+  }
 
-    .thumbnail {
-        margin-bottom: 20px;
-    }
+  .thumbnail {
+    margin-bottom: 20px;
+  }
 
-    footer {
-        font-size: 10pt;
-    }
+  footer {
+    font-size: 10pt;
+  }
 
-    .copyright {
-        width: 500px;
-        display: block;
-        float: left;
-    }
+  .copyright {
+    width: 500px;
+    display: block;
+    float: left;
+  }
 
-    .about {
-        margin-right: 30px;
-    }
+  .about {
+    margin-right: 30px;
+  }
 }
 
 @media (min-width: 1025px) {
 
-    .weather-info {
-        float: right;
-        right: 10px;
-        margin-right: inherit;
-    }
+  .weather-info {
+    float: right;
+    right: 10px;
+    margin-right: inherit;
+  }
 
 }
 
 @media (min-width: 768px) {
-    .col-sm-6 {
-        width: 100%;
-        float: none;
-        margin: 0 auto;
-    }
+  .col-sm-6 {
+    width: 100%;
+    float: none;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 660px) {
-    .cityInput {
-        margin-top: 20px;
-    }
+  .cityInput {
+    margin-top: 20px;
+  }
 
-    .col-sm-6 {
-        margin-top: 30px !important;
-    }
+  .col-sm-6 {
+    margin-top: 30px !important;
+  }
 
-    .fullscreen-bg__video {
-        height: inherit;
-        width: initial;
-    }
+  .fullscreen-bg__video {
+    height: inherit;
+    width: initial;
+  }
 
-    #user-icon{
-        display: none;
-    }
+  #user-icon {
+    display: none;
+  }
 
-    .name{
-        margin-top: 15px;
-    }
+  .name {
+    margin-top: 15px;
+  }
 }

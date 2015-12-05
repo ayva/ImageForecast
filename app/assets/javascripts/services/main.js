@@ -66,7 +66,7 @@ futugram.service('main', ['$rootScope', function ($rootScope) {
         $(function () {
             $("#datepicker").datepicker({
                 onSelect: function (date, ins) {
-                    $rootScope.$broadcast('mobile-calendar:uploaded', {date: ins});
+                    $rootScope.$broadcast('calendar:uploaded', {date: ins});
                 }
             });
             $("#format").change(function () {
@@ -92,7 +92,7 @@ futugram.service('main', ['$rootScope', function ($rootScope) {
 
     function getCurrentDay() {
         var d = new Date();
-        return d.getDate();
+        return d.getDate() + 1;
     }
 
 

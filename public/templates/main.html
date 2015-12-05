@@ -22,22 +22,6 @@
             who already have been there. Select a city, a date of a planned trip, and a point on map.</p>
 
         <form class="form-inline" ng-model="searchForm" ng-submit="showForecast()">
-            <div class="cityInput">
-                <input type="text"
-                       required="string"
-                       uib-typeahead="place.name for place in geo.places"
-                       typeahead-no-results="noResults"
-                       typeahead-append-to-body="true"
-                       typeahead-on-select="searchForm.place = $item"
-                       ng-model="searchForm.place"
-                       ng-change="getPlaces(searchForm.place)"
-                       class="input"
-                       ng-value="search.place"
-                       autocomplete="off">
-                
-                <!-- <button type="submit" class="button">GO</button> -->
-            </div>
-
 
             <div class="slider-wrapper">
                 <div class="months">
@@ -63,35 +47,52 @@
                 <div>
                     <ul class="days-list"></ul>
                 </div>
-                <div><span class="output"></span></div>
+                <!--<div><span class="output"></span></div>-->
             </div>
             <div class="calendar-container" id="calendar-mobile">
-                <input type="text" id="datepicker" size="30" ng-model="searchForm.date">
+                <input type="text" id="datepicker" size="30" ng-model="formattedDate">
             </div>
 
+            <div class="cityInput">
+                <input type="text"
+                       required="string"
+                       uib-typeahead="place.name for place in geo.places"
+                       typeahead-no-results="noResults"
+                       typeahead-append-to-body="true"
+                       typeahead-on-select="searchForm.place = $item"
+                       ng-model="searchForm.place"
+                       ng-change="getPlaces(searchForm.place)"
+                       class="input"
+                       ng-value="search.place"
+                       autocomplete="off">
 
+                <button type="submit" class="button" ng-class="{disable: current_user.data}" ng-disabled="{{isDisabled}}">GO</button>
+            </div>
 
-
-
-            <button ng-show="current_user.data" type="submit" class="btn btn-success">Show me the future</button>
-            <a ng-hide="current_user.data" href = "https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code" class="btn btn-default">Please login to search the future</a>
+            <!--<button ng-show="current_user.data" type="submit" class="btn btn-success show">SHOW ME THE FUTURE</button>-->
+            <!--<a ng-hide="current_user.data"-->
+            <!--href="https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code"-->
+            <!--class="btn btn-default show">Please login to search the future</a>-->
+            <a ng-hide="current_user.data"
+               href="https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code"
+               class="login-request">Please login to search the future</a>
         </form>
 
     </div>
     <div class="map-wrapper">
         <div id="map"></div>
-<!--         <h1 class="row text-center" style="color: black">{{search.place.name}} on {{search.date}}</h1> -->
+        <!--         <h1 class="row text-center" style="color: black">{{search.place.name}} on {{search.date}}</h1> -->
 
     </div>
-<!--     <div style="color: black">
+    <!--     <div style="color: black">
 
-        Form {{searchForm}}
-        <br>
-        Storage search {{search}}
-        <br>
-        Date {{mobiledate}}
-        {{days}}
-    </div> -->
+            Form {{searchForm}}
+            <br>
+            Storage search {{search}}
+            <br>
+            Date {{mobiledate}}
+            {{days}}
+        </div> -->
 
     <div class="photoBlock">
         <h4 class="text-center" ng-if="featured.cities.data.length == 0 ">No photos for this place. Try another date
