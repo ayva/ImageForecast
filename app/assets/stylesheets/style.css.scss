@@ -1,5 +1,22 @@
 /*About*/
 
+html, body, .wrapper .ng-scope {
+  font-family: 'Orbitron', sans-serif;
+  height: 100%;
+}
+
+.text-center {
+  color: rgb(01, 22, 33);
+}
+
+.about-wrapper {
+  color: rgb(01, 22, 33);
+}
+
+.git {
+  margin-bottom: 30px !important;
+}
+
 .contributorImage {
   border-radius: 80px;
   width: 160px;
@@ -11,18 +28,29 @@
     margin-bottom: 5px;
     margin-right: 10px;
   }
-  color: #222222;
+  color: rgb(01, 22, 33);
   text-decoration: none;
 
 }
 
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
 .gitlink:hover {
   text-decoration: none;
+  color: rgb(01, 22, 33);
 }
 
 @font-face {
   font-family: digital;
   src: url(/statics/fonts/digital-7.ttf);
+}
+
+.navbar {
+  background-color: rgba(01, 22, 33, 0.7);
+  border-radius: 0;
 }
 
 #user-icon {
@@ -42,11 +70,18 @@
 
 .wrapper {
   color: white;
-  font-family: 'Orbitron', sans-serif;
   width: 100%;
   max-width: 2000px;
   margin: 0 auto;
   padding: 0;
+}
+
+#goButton:hover ~ #goUrl {
+  text-shadow: white 0 0 10px;
+}
+
+#goUrl {
+  font-family: 'Orbitron', sans-serif;
 }
 
 .navbar {
@@ -84,7 +119,7 @@
   overflow: hidden;
   z-index: -100;
   width: 100%;
-  height: 350px;
+  height: 360px;
   margin: 0 auto;
 }
 
@@ -97,7 +132,7 @@
 
 .header {
   width: 100%;
-  height: 290px;
+  height: 300px;
   margin: 0 auto;
   margin-bottom: 10px;
   padding: 10px 20px;
@@ -173,6 +208,7 @@
   font-size: 20pt;
   color: gray;
   cursor: not-allowed;
+  margin-bottom: 20px;
 }
 
 .disable {
@@ -334,17 +370,11 @@ img.weatherIcon {
   margin-bottom: 10px !important;
 }
 
-/*.weatherIcon {*/
-/*width: 50px;*/
-/*height: 50px !important;*/
-/*}*/
-
 .weather-info {
   width: 130px;
   position: absolute;
   bottom: 10px;
-  left: 0;
-  right: 0;
+  right: 10px;
 }
 
 .degrees {
@@ -388,7 +418,7 @@ img.weatherIcon {
   margin-bottom: 0;
 }
 
-footer {
+#footer {
   width: 100%;
   height: 60px;
   margin: 0 auto;
@@ -398,13 +428,12 @@ footer {
   font-size: 7pt;
 }
 
-footer a {
+#footer a {
   color: white;
 }
 
-footer .rightBlock {
+#footer .rightBlock {
   float: right;
-  margin-top: -7px;
 }
 
 .copyright {
@@ -432,6 +461,19 @@ footer .rightBlock {
     width: 33.33333333%;
     float: left;
     padding: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .weather-info {
+    right: 0;
+  }
+  .degrees {
+    width: 120px;
+    height: 20px;
+  }
+  .fahrenheits {
+    font-size: 12pt;
   }
 }
 
@@ -517,7 +559,7 @@ footer .rightBlock {
     margin-bottom: 20px;
   }
 
-  footer {
+  #footer {
     font-size: 10pt;
   }
 
@@ -551,6 +593,11 @@ footer .rightBlock {
 }
 
 @media (max-width: 660px) {
+
+  .calendar-container {
+    margin-top: 20px;
+  }
+
   .cityInput {
     margin-top: 20px;
   }
