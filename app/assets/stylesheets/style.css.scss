@@ -5,6 +5,12 @@ html, body, .wrapper .ng-scope {
   height: 100%;
 }
 
+.nav-background{
+  height: 63px;
+  background-color: #011621;
+  margin-top: -63px;
+}
+
 .text-center {
   color: rgb(01, 22, 33);
 }
@@ -49,7 +55,7 @@ a:hover {
 }
 
 .navbar {
-  background-color: rgba(01, 22, 33, 0.7);
+  background-color: transparent;
   border-radius: 0;
 }
 
