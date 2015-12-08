@@ -5,7 +5,7 @@ futugram.directive('appFooter', ['$timeout', function($timeout){
                 scope: true,
                 templateUrl: 'partials/footer.html',
                 link: function (scope, iElement, iAttrs) {
-                    var stickyFooterWrapper = $(iAttrs.stickyFooter);
+                    var stickyFooterWrapper = $(iAttrs.appFooter);
 
                     // Quite often you will occur a few wrapping `<div>`s in the
                     // top level of your DOM, so we need to set the height
