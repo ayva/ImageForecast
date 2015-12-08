@@ -1,6 +1,8 @@
-futugram.directive('appFooter', '$timeout', function($timeout){
+futugram.directive('appFooter', ['$timeout', function($timeout){
   return {
                 restrict: 'A',
+                // template: 'WOOHOO',
+                scope: true,
                 templateUrl: 'partials/footer.html',
                 link: function (scope, iElement, iAttrs) {
                     var stickyFooterWrapper = $(iAttrs.stickyFooter);
@@ -29,4 +31,4 @@ futugram.directive('appFooter', '$timeout', function($timeout){
                     $(window).on('resize', setHeights);
                 }
           };
-});
+}]);
