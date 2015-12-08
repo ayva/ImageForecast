@@ -1,11 +1,10 @@
-
 futugram.controller('mainCtrl', ['$scope', '$rootScope', '$http', 'storage', 'current_user', 'main', function ($scope, $rootScope, $http, storage, current_user, main) {
 
     $scope.$on('photos:uploaded', function (event) {
         console.log("Got confirmation photos uploaded!", storage.weather);
         setTimeout(main.wrapFirstPhoto, 1000);
     });
-    $scope.$on('mobile-calendar:uploaded', function (event, date) {
+    $scope.$on('calendar:uploaded', function (event, date) {
         console.log("date uploaded!");
         storage.search.date = new Date(
             date.date.selectedYear,
@@ -46,6 +45,9 @@ futugram.controller('mainCtrl', ['$scope', '$rootScope', '$http', 'storage', 'cu
     $scope.featured = storage.featured;
 
     $scope.weather = storage.weather;
+    //$scope.formattedDate = $scope.searchForm.date.getMonth()+1+'/'+$scope.searchForm.date.getDate()+'/'+$scope.searchForm.date.getFullYear();
+    $scope.formattedDate = $scope.searchForm.date.format("mm/dd/yy");
+    $scope.isDisabled = $scope.current_user.data ? false : true;
 
 
     $scope.showForecast = function () {
@@ -112,7 +114,6 @@ futugram.controller('mainCtrl', ['$scope', '$rootScope', '$http', 'storage', 'cu
     });
 
 
-
     $scope.date = new Date(Date.now());
     //Show data for Paris
     storage.get_featured_city($scope.date, {
@@ -133,7 +134,7 @@ futugram.controller('mainCtrl', ['$scope', '$rootScope', '$http', 'storage', 'cu
             selectedDay: data.value,
             selectedMonth: $scope.month
         };
-        $rootScope.$broadcast('mobile-calendar:uploaded', {date: date});
+        $rootScope.$broadcast('calendar:uploaded', {date: date});
     });
 
 }]);

@@ -1,4 +1,4 @@
-app.directive('appFooter', '$timeout', function($timeout){
+futugram.directive('appFooter', '$timeout', function($timeout){
   return {
                 restrict: 'A',
                 templateUrl: 'partials/footer.html',
