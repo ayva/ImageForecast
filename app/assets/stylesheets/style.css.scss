@@ -59,6 +59,10 @@ a:hover {
   border-radius: 0;
 }
 
+.navbar a {
+  color: white;
+}
+
 #user-icon {
   height: 40px;
   border-radius: 20px;
@@ -68,6 +72,7 @@ a:hover {
 
 .name {
   margin-right: 20px;
+  margin-left: 20px;
 }
 
 .sign-wrapper {
@@ -177,6 +182,7 @@ a:hover {
   width: 100%;
   line-height: 25px;
   margin: 0 auto;
+  margin-top: 80px;
   text-align: center;
   font-size: 10pt;
 }
@@ -470,7 +476,7 @@ img.weatherIcon {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 440px) {
   .weather-info {
     right: 0;
   }
@@ -480,6 +486,10 @@ img.weatherIcon {
   }
   .fahrenheits {
     font-size: 12pt;
+  }
+  .nav-background{
+    height: 97px;
+    margin-top: -97px;
   }
 }
 

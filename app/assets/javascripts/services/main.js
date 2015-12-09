@@ -76,9 +76,11 @@ futugram.service('main', ['$rootScope', function ($rootScope) {
     };
 
     this.wrapFirstPhoto = function () {
-        $('.weather-info')[0].style.display = 'block';
-        $('#photo-1')[0].className = '';
-        $($('#photo-1')[0]).appendTo('.weather-block-wrapper');
+        if ($('#photo-1')[0] !== undefined) {
+            $('.weather-info')[0].style.display = 'block';
+            $('#photo-1')[0].className = '';
+            $($('#photo-1')[0]).appendTo('.weather-block-wrapper');
+        }
     };
 
     function getCurrentMonth() {
