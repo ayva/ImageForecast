@@ -46,7 +46,7 @@
                 <div>
                     <ul class="days-list"></ul>
                 </div>
-                <!--<div><span class="output"></span></div>-->
+              
             </div>
             <div class="calendar-container" id="calendar-mobile">
                 <input type="text" id="datepicker" size="30" ng-model="formattedDate">
@@ -69,31 +69,19 @@
                         ng-disabled="{{isDisabled}}" id="goButton">GO
                 </button>
                 <a ng-hide="current_user.data" id="goUrl"
-                   href="https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code"
+                   href="https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=https://futugram.herokuapp.com/callback&response_type=code"
                    class="login-request">Please login to search the future</a>
             </div>
 
-            <!--<button ng-show="current_user.data" type="submit" class="btn btn-success show">SHOW ME THE FUTURE</button>-->
-            <!--<a ng-hide="current_user.data"-->
-            <!--href="https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code"-->
-            <!--class="btn btn-default show">Please login to search the future</a>-->
         </form>
 
     </div>
     <div class="map-wrapper">
         <div id="map"></div>
-        <!--         <h1 class="row text-center" style="color: black">{{search.place.name}} on {{search.date}}</h1> -->
+
 
     </div>
-    <!--     <div style="color: black">
 
-            Form {{searchForm}}
-            <br>
-            Storage search {{search}}
-            <br>
-            Date {{mobiledate}}
-            {{days}}
-        </div> -->
 
     <div class="photoBlock">
         <h4 class="text-center" ng-if="featured.cities.data.length == 0 ">No photos for this place. Try another date
