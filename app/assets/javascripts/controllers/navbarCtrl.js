@@ -1,4 +1,5 @@
 futugram.controller('navbarCtrl', ['$scope', '$http','storage', 'current_user', 'Restangular', function($scope, $http, storage, current_user, Restangular){
+  
   $scope.current_user = storage.current_user;
   $scope.ctrldata = "Hello ctrl";
   // $scope.authorized = Authorized;

@@ -4,7 +4,7 @@
         <ul class="nav navbar-nav navbar-right">
 
             <li ng-hide='current_user.data' class="sign-wrapper">
-                <a href="https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz:3000/callback&response_type=code"
+                <a href="https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=https://futugram.herokuapp.com/callback&response_type=code"
                    class='sign'><i class="fa fa-bar-chart-o"></i>SIGN IN</a>
             </li>
             <li ng-show='current_user.data' class="sign-wrapper"><a ng-click="Logout()" class='sign'><i

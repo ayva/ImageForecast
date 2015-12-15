@@ -22,7 +22,7 @@ class PagesController < ApplicationController
     body = { "client_id" => Rails.application.secrets.INSTAGRAM_CLIENT_ID,
         "client_secret" => Rails.application.secrets.INSTAGRAM_CLIENT_SECRET,
         "grant_type" => 'authorization_code',
-        "redirect_uri" => "http://futugram.xyz:3000/callback",
+        "redirect_uri" => Rails.application.secrets.INSTAGRAM_CALLBACK,
         "code" => code
       }
 
