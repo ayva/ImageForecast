@@ -17,7 +17,7 @@
             </video>
         </div>
 
-        <p class="explanation">Futugramm shows how it will look in the coming year through the eyes of those,
+        <p class="explanation">Futugram shows how it will look in the coming year through the eyes of those,
             who already have been there. Select a city, a date of a planned trip, and a point on map.</p>
 
         <form class="form-inline" ng-model="searchForm" ng-submit="showForecast()">
@@ -69,7 +69,7 @@
                         ng-disabled="{{isDisabled}}" id="goButton">GO
                 </button>
                 <a ng-hide="current_user.data" id="goUrl"
-                   href="https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=https://futugram.herokuapp.com/callback&response_type=code"
+                   href="https://api.instagram.com/oauth/authorize/?client_id=02ca6d5f03394f4bb1401aea6ef75c08&redirect_uri=http://futugram.xyz/callback&response_type=code"
                    class="login-request">Please login to search the future</a>
             </div>
 
