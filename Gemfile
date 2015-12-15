@@ -3,7 +3,6 @@ ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-gem 'rails_12factor', group: :production
 
 gem 'pg'
 
@@ -55,7 +54,10 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-leaflet'
 end
 
-
+group :production do
+  gem 'rails_12factor'
+gem 'puma'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
